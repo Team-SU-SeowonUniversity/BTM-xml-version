@@ -36,5 +36,4 @@ abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflate
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
-
 }

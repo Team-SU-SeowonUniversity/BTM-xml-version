@@ -3,10 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/drawable/login_box.xml" value="0.16" />
+        <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/activity_main.xml" value="0.26856884057971014" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/activity_splash.xml" value="0.17755825734549138" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/activity_start.xml" value="0.17755825734549138" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/dialog_loading.xml" value="0.17806484295845998" />
+        <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/fragment_infirm.xml" value="0.33" />
+        <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/fragment_manager.xml" value="0.33" />
       </map>
     </option>
   </component>
