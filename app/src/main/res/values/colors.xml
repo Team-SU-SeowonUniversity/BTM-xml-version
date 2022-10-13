@@ -8,4 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="colorAccent">#889dfe</color>
+    <!-- SignupActivity -->
+    <color name="tab_indicator_color">#7EDCE9</color>
 </resources>

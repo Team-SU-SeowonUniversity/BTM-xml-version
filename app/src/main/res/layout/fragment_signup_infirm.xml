@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <EditText
+        android:id="@+id/phone_num_input"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:background="@drawable/login_box"
+        android:hint="@string/phone_number_text"
+        android:inputType="phone"
+        android:maxLength="13"
+        android:paddingVertical="10dp"
+        android:paddingStart="10dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/check_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:clickable="true"
+        android:focusable="true"
+        android:fontFamily="@font/nanum_pen_script_regular"
+        android:text="@string/check_text"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="@id/phone_num_input"
+        app:layout_constraintStart_toStartOf="@id/phone_num_input"
+        app:layout_constraintTop_toBottomOf="@+id/phone_num_input" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

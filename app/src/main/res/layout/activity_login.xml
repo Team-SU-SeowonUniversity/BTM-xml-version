@@ -27,6 +27,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:tabRippleColor="@null"
+        app:tabTextAppearance="@style/login_tab_text"
         app:tabTextColor="@color/black" />
 
     <androidx.viewpager2.widget.ViewPager2
@@ -55,10 +56,10 @@
             android:layout_height="wrap_content"
             android:clickable="true"
             android:focusable="true"
+            android:fontFamily="@font/nanum_pen_script_regular"
             android:text="@string/login_text"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/signup_btn"
@@ -67,10 +68,10 @@
             android:layout_marginStart="30dp"
             android:clickable="true"
             android:focusable="true"
+            android:fontFamily="@font/nanum_pen_script_regular"
             android:text="@string/signup_text"
             android:textColor="@color/black"
-            android:textSize="20sp"
-            android:textStyle="bold" />
+            android:textSize="30sp" />
 
     </LinearLayout>
 

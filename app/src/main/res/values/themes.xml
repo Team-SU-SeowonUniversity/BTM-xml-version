@@ -2,10 +2,17 @@
     <!-- Base application theme. -->
     <style name="Theme.BTMXmlVersion" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" >@color/black</item>
-        <!-- Customize your theme here. -->
+        <item name="android:statusBarColor">@color/black</item>
+    </style>
 
+    <style name="login_tab_text" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">24sp</item>
+        <item name="fontFamily">@font/nanum_pen_script_regular</item>
+    </style>
 
+    <style name="signup_tab_text" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">24sp</item>
+        <item name="fontFamily">@font/nanum_pen_script_regular</item>
     </style>
 
 </resources>

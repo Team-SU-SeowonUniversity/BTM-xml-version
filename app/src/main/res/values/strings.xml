@@ -7,4 +7,9 @@
     <string name="email_text">이메일</string>
     <string name="password_text">패스워드</string>
     <string name="login_logo">뇌훈아</string>
+    <!-- SignupActivity -->
+    <string name="parent_text">보호자</string>
+    <string name="institution_text">기관</string>
+    <string name="check_text">확인</string>
+    <string name="institution_name_text">기관명</string>
 </resources>

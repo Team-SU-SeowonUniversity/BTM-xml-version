@@ -3,6 +3,7 @@ package team.su.btmxmlversion.login
 import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.tabs.TabLayoutMediator
+import team.su.btmxmlversion.signup.SignupActivity
 import team.su.btmxmlversion.config.BaseActivity
 import team.su.btmxmlversion.databinding.ActivityLoginBinding
 import team.su.btmxmlversion.login.adapter.LoginVpAdapter
@@ -29,10 +30,11 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
 
         binding.loginBtn.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
+            finish()
         }
 
         binding.signupBtn.setOnClickListener {
-
+            startActivity(Intent(this, SignupActivity::class.java))
         }
     }
 
