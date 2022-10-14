@@ -1,4 +1,4 @@
-package team.su.btmxmlversion.signup.signupmanager.manager
+package team.su.btmxmlversion.signup.signupmanager.manager.parent
 
 import android.content.Intent
 import android.os.Bundle

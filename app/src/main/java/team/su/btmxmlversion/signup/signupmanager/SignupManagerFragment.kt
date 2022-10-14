@@ -5,8 +5,8 @@ import android.view.View
 import team.su.btmxmlversion.R
 import team.su.btmxmlversion.config.BaseFragment
 import team.su.btmxmlversion.databinding.FragmentSignupManagerBinding
-import team.su.btmxmlversion.signup.signupmanager.manager.InstitutionSignupFragment
-import team.su.btmxmlversion.signup.signupmanager.manager.ParentSignupFragment
+import team.su.btmxmlversion.signup.signupmanager.manager.institution.InstitutionSignupFragment
+import team.su.btmxmlversion.signup.signupmanager.manager.parent.ParentSignupFragment
 
 class SignupManagerFragment:
     BaseFragment<FragmentSignupManagerBinding>(FragmentSignupManagerBinding::bind, R.layout.fragment_signup_manager){

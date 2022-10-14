@@ -3,6 +3,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="team.su.btmxmlversion">
 
+    <uses-permission android:name="android.permission.INTERNET" />
+
     <application
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -23,9 +25,9 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".login.LoginActivity"/>
-        <activity android:name=".main.MainActivity"/>
-        <activity android:name=".signup.SignupActivity"/>
+        <activity android:name=".login.LoginActivity" />
+        <activity android:name=".main.MainActivity" />
+        <activity android:name=".signup.SignupActivity" />
     </application>
 
 </manifest>
