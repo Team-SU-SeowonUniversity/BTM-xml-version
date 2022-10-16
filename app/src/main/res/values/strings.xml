@@ -11,5 +11,7 @@
     <string name="parent_text">보호자</string>
     <string name="institution_text">기관</string>
     <string name="check_text">확인</string>
-    <string name="institution_name_text">기관명</string>
+    <string name="institution_name_text">시설명</string>
+    <string name="representative_name_text">대표자</string>
+    <string name="certified_text">인증</string>
 </resources>

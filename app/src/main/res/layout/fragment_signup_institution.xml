@@ -40,13 +40,13 @@
         android:id="@+id/tool_tip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PW : 8~15자"
-        android:textSize="18sp"
         android:layout_marginStart="10dp"
         android:fontFamily="@font/nanum_pen_script_regular"
+        android:text="PW : 8~15자"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/password_signup_input"
         app:layout_constraintStart_toEndOf="@id/password_signup_input"
-        app:layout_constraintTop_toTopOf="@id/password_signup_input"
-        app:layout_constraintBottom_toBottomOf="@id/password_signup_input"/>
+        app:layout_constraintTop_toTopOf="@id/password_signup_input" />
 
 
     <com.google.android.material.divider.MaterialDivider
@@ -59,7 +59,7 @@
         app:layout_constraintTop_toBottomOf="@id/password_signup_input" />
 
     <EditText
-        android:id="@+id/institution_signup_input"
+        android:id="@+id/facilityName"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -68,25 +68,55 @@
         android:maxLength="10"
         android:paddingHorizontal="10dp"
         android:paddingVertical="10dp"
-        android:textColor="@color/black"
+        android:textColor="@drawable/login_box_text"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/divider" />
 
+    <EditText
+        android:id="@+id/representative"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/login_box"
+        android:hint="@string/representative_name_text"
+        android:maxLength="10"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp"
+        android:textColor="@drawable/login_box_text"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/facilityName" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/certified_btn"
+        android:layout_width="60dp"
+        android:layout_height="35dp"
+        android:layout_marginStart="10dp"
+        android:outlineSpotShadowColor="@android:color/transparent"
+        android:text="@string/certified_text"
+        android:background="@drawable/certified_button_background"
+        app:cornerRadius="8dp"
+        android:enabled="true"
+        app:layout_constraintBottom_toBottomOf="@id/representative"
+        app:layout_constraintStart_toEndOf="@id/representative"
+        app:layout_constraintTop_toTopOf="@id/representative"/>
+
     <TextView
         android:id="@+id/check_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="25dp"
         android:clickable="true"
         android:focusable="true"
         android:fontFamily="@font/nanum_pen_script_regular"
         android:text="@string/check_text"
         android:textColor="@color/black"
         android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="@id/institution_signup_input"
-        app:layout_constraintStart_toStartOf="@id/institution_signup_input"
-        app:layout_constraintTop_toBottomOf="@+id/institution_signup_input" />
+        app:layout_constraintEnd_toEndOf="@id/representative"
+        app:layout_constraintStart_toStartOf="@id/representative"
+        app:layout_constraintTop_toBottomOf="@+id/representative" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

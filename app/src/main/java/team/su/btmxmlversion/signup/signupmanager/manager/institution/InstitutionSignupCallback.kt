@@ -7,6 +7,6 @@ interface InstitutionSignupCallback: BaseCallback {
 
     fun getNursingHomeDataSuccess(response: NursingHomeResponse)
 
-    fun getNursingHomeDataFailure(response: NursingHomeResponse)
+    fun getNursingHomeDataFailure()
 
 }

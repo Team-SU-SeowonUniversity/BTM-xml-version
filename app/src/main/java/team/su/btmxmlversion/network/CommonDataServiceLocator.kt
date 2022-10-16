@@ -1,6 +1,5 @@
 package team.su.btmxmlversion.network
 
-import android.util.Log
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
@@ -11,10 +10,6 @@ import java.util.concurrent.TimeUnit
 
 object CommonDataServiceLocator {
     private const val BASE_URL = BuildConfig.URL_NURSING_HOME
-
-    init {
-        Log.d("URL", "$BASE_URL")
-    }
 
     private val client: OkHttpClient = OkHttpClient.Builder()
         .readTimeout(5000, TimeUnit.MILLISECONDS)
