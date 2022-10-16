@@ -26,7 +26,7 @@
         </activity>
 
         <activity android:name=".login.LoginActivity" />
-        <activity android:name=".main.MainActivity" />
+        <activity android:name=".main.infirmMain.MainActivity" />
         <activity android:name=".signup.SignupActivity" />
     </application>
 

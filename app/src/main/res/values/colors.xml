@@ -13,5 +13,9 @@
     <color name="certified_enable_button_color">#43A047</color>
     <color name="certified_disable_button_color">#9C9B9B</color>
     <color name="login_edit_text_disable_color">#C3C3C3</color>
+    <!-- MainActivity -->
+    <color name="category_button_background_color">#C3F4EC</color>
+    <color name="category_button_text_color">#596780</color>
+
 
 </resources>

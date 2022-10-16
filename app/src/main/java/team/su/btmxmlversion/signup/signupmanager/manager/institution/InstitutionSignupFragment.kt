@@ -2,13 +2,12 @@ package team.su.btmxmlversion.signup.signupmanager.manager.institution
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.core.app.ActivityCompat
 import team.su.btmxmlversion.R
 import team.su.btmxmlversion.config.BaseFragment
 import team.su.btmxmlversion.databinding.FragmentSignupInstitutionBinding
-import team.su.btmxmlversion.main.MainActivity
+import team.su.btmxmlversion.main.infirmMain.MainActivity
 import team.su.btmxmlversion.network.CommonDataServiceLocator
 import team.su.btmxmlversion.signup.SignupActivity
 import team.su.btmxmlversion.signup.SignupRepository
@@ -59,8 +58,6 @@ class InstitutionSignupFragment:
                 binding.representative.isEnabled = false
             }
         }
-
-
 
     }
 

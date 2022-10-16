@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/quiz_btn"
+        android:title="@string/quiz_text"
+        android:icon="@drawable/bottom_nav_quiz_icon"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/dementia_diagnosis_btn"
+        android:title="@string/dementia_diagnosis_text"
+        android:icon="@drawable/bottom_nav_dementia_diagnosis_icon"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/my_page_btn"
+        android:title="@string/my_page_text"
+        android:icon="@drawable/bottom_nav_my_page_icon"
+        app:showAsAction="ifRoom"/>
+
+</menu>

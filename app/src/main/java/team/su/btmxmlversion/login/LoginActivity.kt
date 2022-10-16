@@ -7,7 +7,7 @@ import team.su.btmxmlversion.signup.SignupActivity
 import team.su.btmxmlversion.config.BaseActivity
 import team.su.btmxmlversion.databinding.ActivityLoginBinding
 import team.su.btmxmlversion.login.adapter.LoginVpAdapter
-import team.su.btmxmlversion.main.MainActivity
+import team.su.btmxmlversion.main.infirmMain.MainActivity
 
 class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate) {
 
