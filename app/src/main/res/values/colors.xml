@@ -16,6 +16,10 @@
     <!-- MainActivity -->
     <color name="category_button_background_color">#C3F4EC</color>
     <color name="category_button_text_color">#596780</color>
+    <color name="bottom_nav_checked_color">#064109</color>
+        <!-- MainActivity - QuizFragment-->
+        <color name="quiz_type_tab_indicator_color">#82C06A</color>
+        <color name="quiz_button_background_color">#00892A</color>
 
 
 </resources>

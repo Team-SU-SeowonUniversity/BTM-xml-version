@@ -40,20 +40,4 @@ class MainActivity: BaseActivity<ActivityMainBinding>(ActivityMainBinding::infla
 
     }
 
-    override fun onResume() {
-        super.onResume()
-
-
-
-    }
-
-    /*
-    0 -> Perception
-    1 -> Memory
-    2 -> Intuition
-    3 -> Calculation
-    4 -> Analysis
-    else -> Status
-     */
-
 }
