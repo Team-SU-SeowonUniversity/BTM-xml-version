@@ -7,9 +7,12 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewbinding.ViewBinding
 import team.su.btmxmlversion.until.LoadingDialog
+import java.util.Timer
 
 abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflater) -> B) :
     AppCompatActivity() {
+
+    var timerTask: Timer? = null
 
     protected lateinit var binding: B
         private set

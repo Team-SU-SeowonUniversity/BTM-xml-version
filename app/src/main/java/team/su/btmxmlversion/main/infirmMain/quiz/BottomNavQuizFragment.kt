@@ -9,7 +9,7 @@ import team.su.btmxmlversion.databinding.FragmentQuizBinding
 import team.su.btmxmlversion.main.infirmMain.MainActivity
 import team.su.btmxmlversion.signup.adapter.QuizTypeVpAdapter
 
-class QuizFragment:BaseFragment<FragmentQuizBinding>(FragmentQuizBinding::bind, R.layout.fragment_quiz) {
+class BottomNavQuizFragment:BaseFragment<FragmentQuizBinding>(FragmentQuizBinding::bind, R.layout.fragment_quiz) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

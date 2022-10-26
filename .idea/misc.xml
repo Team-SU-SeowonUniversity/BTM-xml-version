@@ -23,12 +23,15 @@
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/drawable/login_box_text_enable.xml" value="0.214" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/drawable/my_page_checked_icon.xml" value="0.214" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/drawable/my_page_unchecked_icon.xml" value="0.214" />
+        <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/drawable/question_image_bottom_divider.xml" value="0.216" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/drawable/quiz_checked.xml" value="0.214" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/drawable/quiz_icon.xml" value="0.214" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/drawable/quiz_tab_text_color.xml" value="0.214" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/drawable/signup_tab_indicator.xml" value="0.1635" />
+        <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/drawable/timer_icon.xml" value="0.216" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/activity_multiple_choice_quiz.xml" value="0.33" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/activity_signup.xml" value="0.33" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/activity_splash.xml" value="0.17755825734549138" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/activity_start.xml" value="0.17755825734549138" />
@@ -45,11 +48,14 @@
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/fragment_my_page.xml" value="0.33106884057971014" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/fragment_perception.xml" value="0.33106884057971014" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/fragment_quiz.xml" value="0.33106884057971014" />
+        <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/fragment_quiz_list_view_pager.xml" value="0.3374094202898551" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/fragment_signup_infirm.xml" value="0.33" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/fragment_signup_institution.xml" value="0.33" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/fragment_signup_manager.xml" value="0.25" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/fragment_signup_parent.xml" value="0.33" />
+        <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/multiple_choice_quiz_recycler_view_item.xml" value="0.3374094202898551" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/quiz_recycler_view_item.xml" value="0.33106884057971014" />
+        <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/quiz_view_pager_item.xml" value="0.33106884057971014" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/recycler_view_main_category_item.xml" value="0.33106884057971014" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.36614583333333334" />
       </map>
