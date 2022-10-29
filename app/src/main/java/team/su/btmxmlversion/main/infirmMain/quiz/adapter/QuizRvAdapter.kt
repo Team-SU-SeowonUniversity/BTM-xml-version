@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import team.su.btmxmlversion.databinding.QuizRecyclerViewItemBinding
+import team.su.btmxmlversion.main.infirmMain.quiz.calculation.CalculationActivity
 import team.su.btmxmlversion.main.infirmMain.quiz.perception.shadowing.ShadowingActivity
 import team.su.btmxmlversion.main.infirmMain.quiz.models.QuizData
 
@@ -21,7 +22,7 @@ class QuizRvAdapter(private val list: List<QuizData>): RecyclerView.Adapter<Quiz
 
                 when (quizId) {
                     1 -> Intent(context, ShadowingActivity::class.java).run { context.startActivity(this) } // 지각 - 그림자 찾기
-
+                    3 -> Intent(context, CalculationActivity::class.java).run { context.startActivity(this) } // 계산 - 사칙연산
                 }
 
             }
