@@ -12,7 +12,9 @@ import java.util.Timer
 abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflater) -> B) :
     AppCompatActivity() {
 
-    var timerTask: Timer? = null
+    companion object {
+        var timerTask: Timer? = null
+    }
 
     protected lateinit var binding: B
         private set
