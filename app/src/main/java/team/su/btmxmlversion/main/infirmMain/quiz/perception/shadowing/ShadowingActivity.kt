@@ -28,6 +28,10 @@ class ShadowingActivity:
 
     }
 
+    override fun onBackPressed() {
+        //super.onBackPressed()
+    }
+
     override fun shadowingAddData(): ShadowingData {
         return ShadowingData(
             question = "Q. 다음 중 그림에 맞는 사진을 고르시오.",
