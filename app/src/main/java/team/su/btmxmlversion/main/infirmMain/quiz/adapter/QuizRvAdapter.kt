@@ -5,7 +5,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import team.su.btmxmlversion.databinding.QuizRecyclerViewItemBinding
-import team.su.btmxmlversion.main.infirmMain.multipleChoiceQuiz.MultipleChoiceQuizActivity
+import team.su.btmxmlversion.main.infirmMain.quiz.perception.shadowing.ShadowingActivity
 import team.su.btmxmlversion.main.infirmMain.quiz.models.QuizData
 
 class QuizRvAdapter(private val list: List<QuizData>): RecyclerView.Adapter<QuizRvAdapter.ViewHolder>() {
@@ -16,8 +16,14 @@ class QuizRvAdapter(private val list: List<QuizData>): RecyclerView.Adapter<Quiz
             binding.thumbnailText.text = item.quizName
 
             binding.quizItemCard.setOnClickListener {
-                val intent = Intent(binding.root.context, MultipleChoiceQuizActivity::class.java)
-                intent.run { binding.root.context.startActivity(this) }
+                val quizId = item.quizId
+                val context = binding.root.context
+
+                when (quizId) {
+                    1 -> Intent(context, ShadowingActivity::class.java).run { context.startActivity(this) } // 지각 - 그림자 찾기
+
+                }
+
             }
         }
     }

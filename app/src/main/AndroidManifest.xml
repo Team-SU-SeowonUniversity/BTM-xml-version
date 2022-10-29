@@ -28,7 +28,7 @@
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".main.infirmMain.MainActivity" />
         <activity android:name=".signup.SignupActivity" />
-        <activity android:name=".main.infirmMain.multipleChoiceQuiz.MultipleChoiceQuizActivity" />
+        <activity android:name=".main.infirmMain.quiz.perception.shadowing.ShadowingActivity" />
         <!--<activity android:name=".splash.SplashActivity" />-->
     </application>
 

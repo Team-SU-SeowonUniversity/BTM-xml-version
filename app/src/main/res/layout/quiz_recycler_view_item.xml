@@ -29,8 +29,9 @@
                 android:id="@+id/thumbnail_image"
                 android:layout_width="match_parent"
                 android:layout_height="160dp"
+                android:background="@color/white"
                 android:scaleType="fitXY"
-                android:src="@drawable/thumbnail_test"
+                android:src="@drawable/bear_shadow"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView

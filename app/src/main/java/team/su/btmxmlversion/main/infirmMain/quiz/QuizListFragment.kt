@@ -30,38 +30,36 @@ class QuizListFragment:BaseFragment<FragmentQuizListViewPagerBinding>(FragmentQu
         return listOf(
             Quiz(
                 listOf(
-                    QuizData("그림자 찾기", R.drawable.thumbnail_test, 0, 1),
+                    QuizData("그림자 찾기", R.drawable.panda_shadow, 0, 1),
+                    QuizData("동물 찾기", R.drawable.thumbnail_test, 0, 2),
                 )
             ),
 
             Quiz(
                 listOf(
-                    QuizData("그림자 찾", R.drawable.thumbnail_test, 1, 2),
-                    QuizData("그림자 ", R.drawable.thumbnail_test, 1, 3),
+                    QuizData("그림자 찾", R.drawable.thumbnail_test, 1, 3),
+                    QuizData("그림자 ", R.drawable.thumbnail_test, 1, 4),
                 )
             ),
             Quiz(
                 listOf(
-                    QuizData("그림자 찾", R.drawable.thumbnail_test, 2, 4),
-                    QuizData("그림자 ", R.drawable.thumbnail_test, 2, 5),
-                    QuizData("그림자", R.drawable.thumbnail_test, 2, 5),
+                    QuizData("그림자 찾", R.drawable.thumbnail_test, 2, 5),
+                    QuizData("그림자 ", R.drawable.thumbnail_test, 2, 6),
+                    QuizData("그림자", R.drawable.thumbnail_test, 2, 7),
                 )
             ),
             Quiz(
                 listOf(
-                    QuizData("그림자 찾", R.drawable.thumbnail_test, 3, 6),
-                    QuizData("그림자 ", R.drawable.thumbnail_test, 3, 7),
-                    QuizData("그림자 ", R.drawable.thumbnail_test, 3, 7),
-                    QuizData("그림자 ", R.drawable.thumbnail_test, 3, 7),
+                    QuizData("사칙연산", R.drawable.thumbnail_test, 3, 3),
                 )
             ),
             Quiz(
                 listOf(
-                    QuizData("그림자 찾", R.drawable.thumbnail_test, 4, 8),
-                    QuizData("그림자 ", R.drawable.thumbnail_test, 4, 9),
-                    QuizData("그림자 ", R.drawable.thumbnail_test, 3, 7),
-                    QuizData("그림자 ", R.drawable.thumbnail_test, 3, 7),
-                    QuizData("그림자 ", R.drawable.thumbnail_test, 3, 7),
+                    QuizData("그림자 찾", R.drawable.thumbnail_test, 4, 10),
+                    QuizData("그림자 ", R.drawable.thumbnail_test, 4, 11),
+                    QuizData("그림자 ", R.drawable.thumbnail_test, 3, 12),
+                    QuizData("그림자 ", R.drawable.thumbnail_test, 3, 13),
+                    QuizData("그림자 ", R.drawable.thumbnail_test, 3, 14),
                 )
             ),
         )
