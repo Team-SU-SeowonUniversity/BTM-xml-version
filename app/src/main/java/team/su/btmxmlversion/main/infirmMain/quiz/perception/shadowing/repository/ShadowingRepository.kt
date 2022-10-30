@@ -10,6 +10,4 @@ interface ShadowingRepository {
 
     fun setRandomQuestionImage(item: ShadowingData)
 
-    fun setTimer(count: Int)
-
 }

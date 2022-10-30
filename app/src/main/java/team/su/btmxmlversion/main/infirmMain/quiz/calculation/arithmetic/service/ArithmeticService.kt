@@ -1,8 +1,10 @@
-package team.su.btmxmlversion.main.infirmMain.quiz.calculation.service
+package team.su.btmxmlversion.main.infirmMain.quiz.calculation.arithmetic.service
 
-import team.su.btmxmlversion.main.infirmMain.quiz.calculation.repository.CalculationRepository
+import android.util.Log
+import team.su.btmxmlversion.main.infirmMain.quiz.calculation.arithmetic.model.ArithmeticExampleModel
+import team.su.btmxmlversion.main.infirmMain.quiz.calculation.arithmetic.repository.ArithmeticRepository
 
-class CalculationService: CalculationRepository {
+class ArithmeticService: ArithmeticRepository {
 
     companion object {
         const val ADD = 0
@@ -10,7 +12,7 @@ class CalculationService: CalculationRepository {
         const val MULTIPLICATION = 2
         const val DIVISION = 3
 
-        var ANSWER: Int = 0
+        var ANSWER: Int = 0 // 정답 : 3
     }
 
     override fun setQuestionText(): StringBuilder {
@@ -65,6 +67,23 @@ class CalculationService: CalculationRepository {
         return sb.append(" = ?")
     }
 
+    override fun setExampleText(): Pair<List<ArithmeticExampleModel>, Int> {
+        var min = ANSWER - 1
+        var max = ANSWER + 2
+
+        if(ANSWER == 0) {
+            min = 0
+            max = 3
+        }
+
+        val exampleList = mutableSetOf<ArithmeticExampleModel>().apply {
+            while (this.size < 4) {
+                this.add(ArithmeticExampleModel((min..max).random()))
+            }
+        }.toList()
+
+        return Pair(exampleList, ANSWER)
+    }
 
 
 }

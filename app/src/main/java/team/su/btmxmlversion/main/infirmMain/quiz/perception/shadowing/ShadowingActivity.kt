@@ -22,7 +22,7 @@ class ShadowingActivity:
         val item = shadowingAddData()
 
         binding.question.text = item.question
-        setTimer(item.count)
+        setTimer(item.count, binding.timerCount, binding.root.context)
         setRandomQuestionImage(item)
         setRandomExampleImage(item)
 
@@ -91,23 +91,6 @@ class ShadowingActivity:
         randomIndex = (0..totalImageList).random()
 
         binding.questionImage.setImageResource(item.questionImages[randomIndex].shadowImage)
-    }
-
-    override fun setTimer(count: Int) {
-        var time = count + 1
-
-        timerTask = kotlin.concurrent.timer(period = 1000) {
-            time--
-
-            if (time == 0) {
-                timerTask?.cancel()
-                finish()
-            }
-
-            runOnUiThread {
-                binding.timerCount.text = time.toString()
-            }
-        }
     }
 
 }
