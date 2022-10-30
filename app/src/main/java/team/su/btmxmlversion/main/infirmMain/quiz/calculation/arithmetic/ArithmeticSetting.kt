@@ -1,10 +1,8 @@
-package team.su.btmxmlversion.main.infirmMain.quiz.calculation.arithmetic.service
+package team.su.btmxmlversion.main.infirmMain.quiz.calculation.arithmetic
 
-import android.util.Log
-import team.su.btmxmlversion.main.infirmMain.quiz.calculation.arithmetic.model.ArithmeticExampleModel
-import team.su.btmxmlversion.main.infirmMain.quiz.calculation.arithmetic.repository.ArithmeticRepository
+import team.su.btmxmlversion.main.infirmMain.quiz.calculation.arithmetic.model.ArithmeticModel
 
-class ArithmeticService: ArithmeticRepository {
+class ArithmeticSetting {
 
     companion object {
         const val ADD = 0
@@ -12,16 +10,16 @@ class ArithmeticService: ArithmeticRepository {
         const val MULTIPLICATION = 2
         const val DIVISION = 3
 
-        var ANSWER: Int = 0 // 정답 : 3
+        var ANSWER: Int = 0
     }
 
-    override fun setQuestionText(): StringBuilder {
-        val operators = listOf(0,1,2,3).random()
+    internal fun setArithmetic(): ArithmeticModel {
+        val operators = listOf(0, 1, 2, 3).random()
         var leftOperand = (0..9).random()
         var rightOperand = (0..9).random()
         val sb = StringBuilder()
 
-        when(operators) {
+        when (operators) {
             ADD -> {
                 sb.append(leftOperand.toString())
                     .append(" + ")
@@ -64,26 +62,31 @@ class ArithmeticService: ArithmeticRepository {
             }
         }
 
-        return sb.append(" = ?")
+        val example = setExample()
+
+        return ArithmeticModel(
+            sb.append(" = ?").toString(),
+            example.first,
+            example.second,
+        )
     }
 
-    override fun setExampleText(): Pair<List<ArithmeticExampleModel>, Int> {
+    private fun setExample(): Pair<List<Int>, Int> {
         var min = ANSWER - 1
         var max = ANSWER + 2
 
-        if(ANSWER == 0) {
+        if (ANSWER == 0) {
             min = 0
             max = 3
         }
 
-        val exampleList = mutableSetOf<ArithmeticExampleModel>().apply {
+        val exampleList = mutableSetOf<Int>().apply {
             while (this.size < 4) {
-                this.add(ArithmeticExampleModel((min..max).random()))
+                this.add(((min..max).random()))
             }
         }.toList()
 
         return Pair(exampleList, ANSWER)
     }
-
 
 }
