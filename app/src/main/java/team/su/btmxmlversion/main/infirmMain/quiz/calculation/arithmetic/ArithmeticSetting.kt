@@ -2,7 +2,7 @@ package team.su.btmxmlversion.main.infirmMain.quiz.calculation.arithmetic
 
 import team.su.btmxmlversion.main.infirmMain.quiz.calculation.arithmetic.model.ArithmeticModel
 
-class ArithmeticSetting {
+internal class ArithmeticSetting {
 
     companion object {
         const val ADD = 0
