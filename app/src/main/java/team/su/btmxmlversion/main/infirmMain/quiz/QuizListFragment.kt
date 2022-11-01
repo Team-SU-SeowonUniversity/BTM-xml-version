@@ -37,15 +37,14 @@ class QuizListFragment:BaseFragment<FragmentQuizListViewPagerBinding>(FragmentQu
 
             Quiz(
                 listOf(
-                    QuizData("그림자 찾", R.drawable.thumbnail_test, 1, 3),
-                    QuizData("그림자 ", R.drawable.thumbnail_test, 1, 4),
+                    QuizData("그림자 찾", R.drawable.thumbnail_test, 1, 111),
                 )
             ),
             Quiz(
                 listOf(
-                    QuizData("그림자 찾", R.drawable.thumbnail_test, 2, 5),
-                    QuizData("그림자 ", R.drawable.thumbnail_test, 2, 6),
-                    QuizData("그림자", R.drawable.thumbnail_test, 2, 7),
+                    QuizData("그림자 찾", R.drawable.thumbnail_test, 2, 111),
+                    QuizData("그림자 ", R.drawable.thumbnail_test, 2, 111),
+                    QuizData("그림자", R.drawable.thumbnail_test, 2, 111),
                 )
             ),
             Quiz(
@@ -55,11 +54,7 @@ class QuizListFragment:BaseFragment<FragmentQuizListViewPagerBinding>(FragmentQu
             ),
             Quiz(
                 listOf(
-                    QuizData("그림자 찾", R.drawable.thumbnail_test, 4, 10),
-                    QuizData("그림자 ", R.drawable.thumbnail_test, 4, 11),
-                    QuizData("그림자 ", R.drawable.thumbnail_test, 3, 12),
-                    QuizData("그림자 ", R.drawable.thumbnail_test, 3, 13),
-                    QuizData("그림자 ", R.drawable.thumbnail_test, 3, 14),
+                    QuizData("일기예보", R.drawable.thumbnail_test, 4, 4),
                 )
             ),
         )

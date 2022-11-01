@@ -42,7 +42,7 @@ abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflate
         Toast.makeText(this, message, Toast.LENGTH_SHORT).show()
     }
 
-    fun setTimer(count: Int, test: TextView, context: Context) {
+    fun setTimer(count: Int, textView: TextView, context: Context) {
         var time = count + 1
 
         timerTask = kotlin.concurrent.timer(period = 1000) {
@@ -55,7 +55,7 @@ abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflate
             }
 
             runOnUiThread {
-                test.text = time.toString()
+                textView.text = time.toString()
             }
         }
 
