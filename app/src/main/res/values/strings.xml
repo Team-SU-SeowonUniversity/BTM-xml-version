@@ -14,13 +14,18 @@
     <string name="institution_name_text">시설명</string>
     <string name="representative_name_text">대표자</string>
     <string name="certified_text">인증</string>
+    <!-- MainActivity - QuizFragment -->
     <string name="perception_text">지각</string>
     <string name="memory_text">기억</string>
     <string name="intuition_text">직감</string>
     <string name="calculation_text">계산</string>
     <string name="analysis_text">분석</string>
-    <string name="status_text">상태</string>
+    <!-- MainActivity - BottomNavigation -->
     <string name="dementia_diagnosis_text">치매진단</string>
     <string name="quiz_text">퀴즈</string>
     <string name="my_page_text">내 정보</string>
+    <!-- MainActivity - MyPageFragment -->
+    <string name="my_profile_text">내 정보</string>
+    <string name="health_state_text">건강 상태</string>
+    <string name="analysis_graph_text">분석 그래프</string>
 </resources>
