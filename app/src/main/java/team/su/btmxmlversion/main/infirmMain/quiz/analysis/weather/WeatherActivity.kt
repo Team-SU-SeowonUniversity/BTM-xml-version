@@ -15,6 +15,7 @@ class WeatherActivity: BaseActivity<ActivityMultipleChoiceQuizBinding>(ActivityM
         binding.question.text = weatherModel.question
         setTimer(5, binding.timerCount, binding.root.context)
         binding.questionImage.layoutParams.width = 900
+        binding.questionImage.layoutParams.height = 300
         binding.questionImage.setImageResource(weatherModel.questionImage)
         binding.answerRv.adapter =
             WeatherExampleRvAdapter(
