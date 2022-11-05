@@ -31,6 +31,7 @@
         <activity android:name=".main.infirmMain.quiz.perception.shadowing.ShadowingActivity" />
         <activity android:name=".main.infirmMain.quiz.calculation.arithmetic.ArithmeticActivity" />
         <activity android:name=".main.infirmMain.quiz.analysis.weather.WeatherActivity" />
+        <activity android:name=".main.infirmMain.quiz.memory.blinking.BlinkingActivity" />
         <!--<activity android:name=".splash.SplashActivity" />-->
     </application>
 

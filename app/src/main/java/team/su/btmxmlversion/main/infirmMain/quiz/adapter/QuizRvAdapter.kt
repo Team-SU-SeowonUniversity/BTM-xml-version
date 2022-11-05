@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.RecyclerView
 import team.su.btmxmlversion.databinding.QuizRecyclerViewItemBinding
 import team.su.btmxmlversion.main.infirmMain.quiz.analysis.weather.WeatherActivity
 import team.su.btmxmlversion.main.infirmMain.quiz.calculation.arithmetic.ArithmeticActivity
+import team.su.btmxmlversion.main.infirmMain.quiz.memory.blinking.BlinkingActivity
 import team.su.btmxmlversion.main.infirmMain.quiz.perception.shadowing.ShadowingActivity
 import team.su.btmxmlversion.main.infirmMain.quiz.models.QuizData
 
@@ -25,6 +26,7 @@ class QuizRvAdapter(private val list: List<QuizData>): RecyclerView.Adapter<Quiz
                     1 -> Intent(context, ShadowingActivity::class.java).run { context.startActivity(this) } // 지각 - 그림자 찾기
                     3 -> Intent(context, ArithmeticActivity::class.java).run { context.startActivity(this) } // 계산 - 사칙연산
                     4 -> Intent(context, WeatherActivity::class.java).run { context.startActivity(this) } // 분석 - 일기예보
+                    5 -> Intent(context, BlinkingActivity::class.java).run { context.startActivity(this) } // 기억 - 깜박깜박
                 }
 
             }

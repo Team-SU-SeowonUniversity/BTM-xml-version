@@ -37,7 +37,7 @@ class QuizListFragment:BaseFragment<FragmentQuizListViewPagerBinding>(FragmentQu
 
             Quiz(
                 listOf(
-                    QuizData("그림자 찾", R.drawable.thumbnail_test, 1, 111),
+                    QuizData("깜박깜박", R.drawable.thumbnail_test, 1, 5),
                 )
             ),
             Quiz(
