@@ -1,4 +1,4 @@
-package team.su.btmxmlversion.signup.signupmanager.manager.institution
+package team.su.btmxmlversion.signup.signupmanager.institution
 
 import android.content.Intent
 import android.os.Bundle
@@ -11,10 +11,11 @@ import team.su.btmxmlversion.main.infirmMain.MainActivity
 import team.su.btmxmlversion.network.CommonDataServiceLocator
 import team.su.btmxmlversion.signup.SignupActivity
 import team.su.btmxmlversion.signup.SignupRepository
-import team.su.btmxmlversion.signup.signupmanager.manager.institution.models.NursingHomeResponse
+import team.su.btmxmlversion.signup.signupmanager.institution.data.NursingHomeResponse
 
 class InstitutionSignupFragment:
-    BaseFragment<FragmentSignupInstitutionBinding>(FragmentSignupInstitutionBinding::bind, R.layout.fragment_signup_institution), InstitutionSignupCallback
+    BaseFragment<FragmentSignupInstitutionBinding>(FragmentSignupInstitutionBinding::bind, R.layout.fragment_signup_institution),
+    InstitutionSignupCallback
 {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)

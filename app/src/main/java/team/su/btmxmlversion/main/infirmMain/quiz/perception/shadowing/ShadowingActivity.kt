@@ -15,12 +15,12 @@ class ShadowingActivity:
         val shadowingModel = ShadowingSetting().setShadowing()
 
         binding.question.text = "Q. 다음 중 그림에 맞는 사진을 고르시오."
-        setTimer(10, binding.timerCount, binding.root.context)
+        setTimer(10, binding.timerCount, this)
         binding.questionImage.setImageResource(shadowingModel.questionImage)
         binding.answerRv.adapter =
             AnswerRvAdapter(
-                exampleImages = shadowingModel.shadowingExampleModels,
-                answerImage = shadowingModel.answerImage,
+                examples = shadowingModel.examples,
+                answer = shadowingModel.answer,
                 timeOut = { timerTask?.cancel() }
             )
 

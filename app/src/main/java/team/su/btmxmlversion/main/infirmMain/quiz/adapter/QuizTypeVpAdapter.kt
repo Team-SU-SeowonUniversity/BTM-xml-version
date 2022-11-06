@@ -1,4 +1,4 @@
-package team.su.btmxmlversion.signup.adapter
+package team.su.btmxmlversion.main.infirmMain.quiz.adapter
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

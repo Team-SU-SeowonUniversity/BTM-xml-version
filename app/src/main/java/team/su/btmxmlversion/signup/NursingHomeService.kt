@@ -5,7 +5,7 @@ import retrofit2.Call
 import retrofit2.http.GET
 import retrofit2.http.Query
 import team.su.btmxmlversion.BuildConfig
-import team.su.btmxmlversion.signup.signupmanager.manager.institution.models.NursingHomeResponse
+import team.su.btmxmlversion.signup.signupmanager.institution.data.NursingHomeResponse
 
 interface NursingHomeService {
 

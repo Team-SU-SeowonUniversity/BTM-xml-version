@@ -6,8 +6,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import team.su.btmxmlversion.R
 import team.su.btmxmlversion.config.BaseFragment
 import team.su.btmxmlversion.databinding.FragmentQuizBinding
-import team.su.btmxmlversion.main.infirmMain.MainActivity
-import team.su.btmxmlversion.signup.adapter.QuizTypeVpAdapter
+import team.su.btmxmlversion.main.infirmMain.quiz.adapter.QuizTypeVpAdapter
 
 class BottomNavQuizFragment:BaseFragment<FragmentQuizBinding>(FragmentQuizBinding::bind, R.layout.fragment_quiz) {
 

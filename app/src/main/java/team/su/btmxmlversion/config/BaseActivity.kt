@@ -58,7 +58,6 @@ abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflate
                 textView.text = time.toString()
             }
         }
-
     }
 
 }

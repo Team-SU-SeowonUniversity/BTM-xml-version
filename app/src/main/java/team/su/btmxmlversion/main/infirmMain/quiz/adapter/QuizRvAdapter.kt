@@ -9,12 +9,12 @@ import team.su.btmxmlversion.main.infirmMain.quiz.analysis.weather.WeatherActivi
 import team.su.btmxmlversion.main.infirmMain.quiz.calculation.arithmetic.ArithmeticActivity
 import team.su.btmxmlversion.main.infirmMain.quiz.memory.blinking.BlinkingActivity
 import team.su.btmxmlversion.main.infirmMain.quiz.perception.shadowing.ShadowingActivity
-import team.su.btmxmlversion.main.infirmMain.quiz.models.QuizData
+import team.su.btmxmlversion.main.infirmMain.quiz.data.Quiz
 
-class QuizRvAdapter(private val list: List<QuizData>): RecyclerView.Adapter<QuizRvAdapter.ViewHolder>() {
+class QuizRvAdapter(private val list: List<Quiz>): RecyclerView.Adapter<QuizRvAdapter.ViewHolder>() {
 
     inner class ViewHolder(private val binding: QuizRecyclerViewItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: QuizData) {
+        fun bind(item: Quiz) {
             binding.thumbnailImage.setImageResource(item.quizThumbnailImage)
             binding.thumbnailText.text = item.quizName
 

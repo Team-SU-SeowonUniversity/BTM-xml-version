@@ -1,4 +1,4 @@
-package team.su.btmxmlversion.signup.signupmanager.manager.institution.models
+package team.su.btmxmlversion.signup.signupmanager.institution.data
 
 import com.google.gson.annotations.SerializedName
 

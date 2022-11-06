@@ -1,35 +1,24 @@
 package team.su.btmxmlversion.main.infirmMain.quiz.perception.shadowing
 
 import team.su.btmxmlversion.R
-import team.su.btmxmlversion.main.infirmMain.quiz.perception.shadowing.data.ShadowExample
-import team.su.btmxmlversion.main.infirmMain.quiz.perception.shadowing.data.ShadowImage
-import team.su.btmxmlversion.main.infirmMain.quiz.perception.shadowing.data.ShadowingData
-import team.su.btmxmlversion.main.infirmMain.quiz.perception.shadowing.models.ExampleImages
+import team.su.btmxmlversion.main.infirmMain.quiz.perception.shadowing.data.Shadowing
+import team.su.btmxmlversion.main.infirmMain.quiz.perception.shadowing.data.ShadowingResponse
+import team.su.btmxmlversion.main.infirmMain.quiz.perception.shadowing.models.ShadowingExamples
 import team.su.btmxmlversion.main.infirmMain.quiz.perception.shadowing.models.ShadowingModel
 
 internal class ShadowingSetting {
 
     companion object {
-        private val shadowingData = ShadowingData(
-            questionImages = listOf(
-                ShadowImage(R.drawable.fox_shadow),
-                ShadowImage(R.drawable.bear_shadow),
-                ShadowImage(R.drawable.leopard_shadow),
-                ShadowImage(R.drawable.lion_shadow),
-                ShadowImage(R.drawable.mouse_shadow),
-                ShadowImage(R.drawable.panda_shadow),
-                ShadowImage(R.drawable.pig_shadow),
-                ShadowImage(R.drawable.rabbit_shadow),
-            ),
-            examplesImages = listOf(
-                ShadowExample(R.drawable.fox),
-                ShadowExample(R.drawable.bear),
-                ShadowExample(R.drawable.leopard),
-                ShadowExample(R.drawable.lion),
-                ShadowExample(R.drawable.mouse),
-                ShadowExample(R.drawable.panda),
-                ShadowExample(R.drawable.pig),
-                ShadowExample(R.drawable.rabbit),
+        private val shadowingData = ShadowingResponse(
+            result = listOf(
+                Shadowing(R.drawable.fox_shadow, R.drawable.fox),
+                Shadowing(R.drawable.bear_shadow, R.drawable.bear),
+                Shadowing(R.drawable.leopard_shadow, R.drawable.leopard),
+                Shadowing(R.drawable.lion_shadow, R.drawable.lion),
+                Shadowing(R.drawable.mouse_shadow, R.drawable.mouse),
+                Shadowing(R.drawable.panda_shadow, R.drawable.panda),
+                Shadowing(R.drawable.pig_shadow, R.drawable.pig),
+                Shadowing(R.drawable.rabbit_shadow, R.drawable.rabbit)
             )
         )
     }
@@ -44,25 +33,25 @@ internal class ShadowingSetting {
         7. 어댑터 연결
      */
     internal fun setShadowing(): ShadowingModel {
-        val randomIndex = (0 until shadowingData.questionImages.size - 1).random()
-        val exampleList = arrayListOf<ExampleImages>().apply {
+        val questionImage = shadowingData.result.random()
+        val shadowingExamples = arrayListOf<ShadowingExamples>().apply {
             mutableSetOf<Int>()
                 .apply {
-                    add(randomIndex)
+                    add(questionImage.shadowExample)
                     while (size < 4) {
-                        add((0 until shadowingData.examplesImages.size - 1).random())
+                        add(shadowingData.result.random().shadowExample)
                     }
                 }
                 .shuffled()
                 .forEach { index ->
-                    this.add(ExampleImages(shadowingData.examplesImages[index].shadowExample))
+                    add(ShadowingExamples(index))
                 }
         }
 
         return ShadowingModel(
-            questionImage = shadowingData.questionImages[randomIndex].shadowImage,
-            shadowingExampleModels = exampleList,
-            answerImage = shadowingData.examplesImages[randomIndex].shadowExample
+            questionImage = questionImage.shadowImage,
+            examples = shadowingExamples,
+            answer = questionImage.shadowExample
         )
     }
 

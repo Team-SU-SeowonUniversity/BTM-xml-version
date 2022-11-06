@@ -4,7 +4,6 @@ import android.os.Bundle
 import com.google.android.material.tabs.TabLayoutMediator
 import team.su.btmxmlversion.config.BaseActivity
 import team.su.btmxmlversion.databinding.ActivitySignupBinding
-import team.su.btmxmlversion.signup.adapter.QuizTypeVpAdapter
 import team.su.btmxmlversion.signup.adapter.SignupVpAdapter
 
 class SignupActivity: BaseActivity<ActivitySignupBinding>(ActivitySignupBinding::inflate) {

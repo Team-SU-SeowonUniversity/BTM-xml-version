@@ -3,8 +3,8 @@ package team.su.btmxmlversion.signup
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import team.su.btmxmlversion.signup.signupmanager.manager.institution.InstitutionSignupCallback
-import team.su.btmxmlversion.signup.signupmanager.manager.institution.models.NursingHomeResponse
+import team.su.btmxmlversion.signup.signupmanager.institution.InstitutionSignupCallback
+import team.su.btmxmlversion.signup.signupmanager.institution.data.NursingHomeResponse
 
 class SignupRepository(
     private val nursingHomeService: NursingHomeService,

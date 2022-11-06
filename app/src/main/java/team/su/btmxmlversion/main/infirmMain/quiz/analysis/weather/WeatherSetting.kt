@@ -1,6 +1,5 @@
 package team.su.btmxmlversion.main.infirmMain.quiz.analysis.weather
 
-import android.util.Log
 import team.su.btmxmlversion.R
 import team.su.btmxmlversion.main.infirmMain.quiz.analysis.weather.data.TheWeatherByDay
 import team.su.btmxmlversion.main.infirmMain.quiz.analysis.weather.data.WeatherData
@@ -8,8 +7,6 @@ import team.su.btmxmlversion.main.infirmMain.quiz.analysis.weather.data.WeatherI
 import team.su.btmxmlversion.main.infirmMain.quiz.analysis.weather.data.WeeklyForecast
 import team.su.btmxmlversion.main.infirmMain.quiz.analysis.weather.models.WeatherExamples
 import team.su.btmxmlversion.main.infirmMain.quiz.analysis.weather.models.WeatherModel
-import java.lang.Math.random
-import java.lang.StrictMath.random
 
 class WeatherSetting {
 
@@ -81,7 +78,6 @@ class WeatherSetting {
                 }
                 randomDay
             }
-
 
         val weeklyForecast = weatherData.weeklyForecastImages.random()
 
