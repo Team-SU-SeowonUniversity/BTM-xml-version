@@ -13,8 +13,6 @@ class ApplicationClass: Application() {
         super.onCreate()
         sSharedPreferences = applicationContext.getSharedPreferences("BTM_APP", MODE_PRIVATE)
         sSharedPreferences.edit().clear().apply()
-
-
     }
 
 }

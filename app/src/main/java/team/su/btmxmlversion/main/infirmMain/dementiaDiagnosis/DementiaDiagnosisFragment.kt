@@ -22,17 +22,6 @@ class DementiaDiagnosisFragment:
     override fun onResume() {
         super.onResume()
 
-        val intuitionValue = this.activity?.getSharedPreferences("BTM_APP", 0)?.getInt("INTUITION_VALUE", 0)
-        val analysisValue = this.activity?.getSharedPreferences("BTM_APP", 0)?.getInt("ANALYSIS_VALUE", 0)
-        val calculationValue = this.activity?.getSharedPreferences("BTM_APP", 0)?.getInt("CALCULATION_VALUE", 0)
-        val memoryValue = this.activity?.getSharedPreferences("BTM_APP", 0)?.getInt("MEMORY_VALUE", 0)
-        val perceptionValue = this.activity?.getSharedPreferences("BTM_APP", 0)?.getInt("PERCEPTION_VALUE", 0)
-        val passValue = this.activity?.getSharedPreferences("BTM_APP", 0)?.getInt("PASS_VALUE", 0)
-        val failValue = this.activity?.getSharedPreferences("BTM_APP", 0)?.getInt("FAIL_VALUE", 0)
-
-        Log.d("최종값",
-            "분석: $analysisValue, 직감: $intuitionValue, 계산: $calculationValue, 기억: $memoryValue, 지각: $perceptionValue, 맞은갯수: $passValue, 틀린갯수: $failValue")
-
         when(isDiagnosticExperience) {
             true -> setVisitedUi()
             false -> setDefaultUi()
@@ -92,6 +81,7 @@ class DementiaDiagnosisFragment:
         )
 
         val quizBundle = listOf( // 각 영역별 랜덤으로 2개의 퀴즈를 뽑아 10개의 퀴즈로 묶음
+            Intent(binding.root.context, DiagnosisResultActivity::class.java),
             perceptionQuiz.random(),
             perceptionQuiz.random(),
             memoryQuiz.random(),

@@ -2,6 +2,7 @@ package team.su.btmxmlversion.main.infirmMain.myPage
 
 import android.graphics.Color
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.core.content.ContextCompat
 import com.github.mikephil.charting.components.XAxis
@@ -26,20 +27,21 @@ class MyPageFragment: BaseFragment<FragmentMyPageBinding>(FragmentMyPageBinding:
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val intuitionValue = this.activity?.getSharedPreferences("BTM_APP", 0)?.getInt("INTUITION_VALUE", 0)
-        val analysisValue = this.activity?.getSharedPreferences("BTM_APP", 0)?.getInt("ANALYSIS_VALUE", 0)
-        val calculationValue = this.activity?.getSharedPreferences("BTM_APP", 0)?.getInt("CALCULATION_VALUE", 0)
-        val memoryValue = this.activity?.getSharedPreferences("BTM_APP", 0)?.getInt("MEMORY_VALUE", 0)
-        val perceptionValue = this.activity?.getSharedPreferences("BTM_APP", 0)?.getInt("PERCEPTION_VALUE", 0)
-        val passValue = this.activity?.getSharedPreferences("BTM_APP", 0)?.getInt("PASS_VALUE", 0)
-        val failValue = this.activity?.getSharedPreferences("BTM_APP", 0)?.getInt("FAIL_VALUE", 0)
+        val intuitionScore = this.activity?.getSharedPreferences("BTM_APP", 0)?.getFloat("INTUITION_SCORE", 0f)
+        val analysisScore = this.activity?.getSharedPreferences("BTM_APP", 0)?.getFloat("ANALYSIS_SCORE", 0f)
+        val calculationScore = this.activity?.getSharedPreferences("BTM_APP", 0)?.getFloat("CALCULATION_SCORE", 0f)
+        val memoryScore = this.activity?.getSharedPreferences("BTM_APP", 0)?.getFloat("MEMORY_SCORE", 0f)
+        val perceptionScore = this.activity?.getSharedPreferences("BTM_APP", 0)?.getFloat("PERCEPTION_SCORE", 0f)
+
+        Log.d("최종값",
+            "분석: $analysisScore, 직감: $intuitionScore, 계산: $calculationScore, 기억: $memoryScore, 지각: $perceptionScore")
 
         scoreOfAreaType = ArrayList()
-        scoreOfAreaType.add(analysisValue!!.toFloat())
-        scoreOfAreaType.add(calculationValue!!.toFloat())
-        scoreOfAreaType.add(intuitionValue!!.toFloat())
-        scoreOfAreaType.add(memoryValue!!.toFloat())
-        scoreOfAreaType.add(perceptionValue!!.toFloat())
+        scoreOfAreaType.add(analysisScore!!.toFloat())
+        scoreOfAreaType.add(calculationScore!!.toFloat())
+        scoreOfAreaType.add(intuitionScore!!.toFloat())
+        scoreOfAreaType.add(memoryScore!!.toFloat())
+        scoreOfAreaType.add(perceptionScore!!.toFloat())
 
         setHealthState()
         setBarChart()

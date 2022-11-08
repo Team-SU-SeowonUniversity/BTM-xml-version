@@ -34,6 +34,7 @@
         <activity android:name=".main.infirmMain.quiz.analysis.weather.WeatherActivity" />
         <activity android:name=".main.infirmMain.quiz.perception.blinking.BlinkingActivity" />
         <activity android:name=".main.infirmMain.quiz.memory.HwatuCard.HwatuCardActivity" />
+        <activity android:name=".main.infirmMain.dementiaDiagnosis.DiagnosisResultActivity" />
         <!--<activity android:name=".splash.SplashActivity" />-->
     </application>
 

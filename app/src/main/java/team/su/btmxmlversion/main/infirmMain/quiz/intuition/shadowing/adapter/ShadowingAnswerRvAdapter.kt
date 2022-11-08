@@ -17,7 +17,7 @@ class ShadowingAnswerRvAdapter(
 ): RecyclerView.Adapter<ShadowingAnswerRvAdapter.ViewHolder>() {
 
     inner class ViewHolder(private val binding: MultipleChoiceQuizRecyclerViewItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        internal fun exampleBind(item: ShadowingExamples) {
+        internal fun practiceBind(item: ShadowingExamples) {
             binding.exampleImage.setImageResource(item.example)
             binding.example.setOnClickListener {
                 onPassChanged(null)
@@ -58,7 +58,7 @@ class ShadowingAnswerRvAdapter(
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         when (isDiagnosis) {
             true -> holder.diagnosisBind(examples[position])
-            false -> holder.exampleBind(examples[position])
+            false -> holder.practiceBind(examples[position])
         }
     }
 
