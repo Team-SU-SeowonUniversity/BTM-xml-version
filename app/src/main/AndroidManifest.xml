@@ -6,7 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:name=".config.ApplicationClass"
+        android:name=".base.ApplicationClass"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
         android:fullBackupContent="@xml/backup_rules"
@@ -29,10 +29,11 @@
         <activity android:name=".login.LoginActivity" />
         <activity android:name=".main.infirmMain.MainActivity" />
         <activity android:name=".signup.SignupActivity" />
-        <activity android:name=".main.infirmMain.quiz.perception.shadowing.ShadowingActivity" />
+        <activity android:name=".main.infirmMain.quiz.intuition.shadowing.ShadowingActivity" />
         <activity android:name=".main.infirmMain.quiz.calculation.arithmetic.ArithmeticActivity" />
         <activity android:name=".main.infirmMain.quiz.analysis.weather.WeatherActivity" />
-        <activity android:name=".main.infirmMain.quiz.memory.blinking.BlinkingActivity" />
+        <activity android:name=".main.infirmMain.quiz.perception.blinking.BlinkingActivity" />
+        <activity android:name=".main.infirmMain.quiz.memory.HwatuCard.HwatuCardActivity" />
         <!--<activity android:name=".splash.SplashActivity" />-->
     </application>
 

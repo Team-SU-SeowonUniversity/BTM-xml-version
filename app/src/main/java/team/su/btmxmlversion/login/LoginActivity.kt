@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.tabs.TabLayoutMediator
 import team.su.btmxmlversion.signup.SignupActivity
-import team.su.btmxmlversion.config.BaseActivity
+import team.su.btmxmlversion.base.BaseActivity
 import team.su.btmxmlversion.databinding.ActivityLoginBinding
 import team.su.btmxmlversion.login.adapter.LoginVpAdapter
 import team.su.btmxmlversion.main.infirmMain.MainActivity

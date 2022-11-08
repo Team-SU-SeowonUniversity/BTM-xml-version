@@ -1,7 +1,7 @@
 package team.su.btmxmlversion.main.infirmMain.quiz.analysis.weather
 
 import android.os.Bundle
-import team.su.btmxmlversion.config.BaseActivity
+import team.su.btmxmlversion.base.BaseActivity
 import team.su.btmxmlversion.databinding.ActivityMultipleChoiceQuizBinding
 import team.su.btmxmlversion.main.infirmMain.quiz.analysis.weather.adapter.WeatherExampleRvAdapter
 import team.su.btmxmlversion.main.infirmMain.quiz.until.QuizType

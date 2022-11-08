@@ -10,7 +10,7 @@ import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
 import team.su.btmxmlversion.R
-import team.su.btmxmlversion.config.BaseFragment
+import team.su.btmxmlversion.base.BaseFragment
 import team.su.btmxmlversion.databinding.FragmentMyPageBinding
 
 class MyPageFragment: BaseFragment<FragmentMyPageBinding>(FragmentMyPageBinding::bind, R.layout.fragment_my_page) {
@@ -26,12 +26,20 @@ class MyPageFragment: BaseFragment<FragmentMyPageBinding>(FragmentMyPageBinding:
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
+        val intuitionValue = this.activity?.getSharedPreferences("BTM_APP", 0)?.getInt("INTUITION_VALUE", 0)
+        val analysisValue = this.activity?.getSharedPreferences("BTM_APP", 0)?.getInt("ANALYSIS_VALUE", 0)
+        val calculationValue = this.activity?.getSharedPreferences("BTM_APP", 0)?.getInt("CALCULATION_VALUE", 0)
+        val memoryValue = this.activity?.getSharedPreferences("BTM_APP", 0)?.getInt("MEMORY_VALUE", 0)
+        val perceptionValue = this.activity?.getSharedPreferences("BTM_APP", 0)?.getInt("PERCEPTION_VALUE", 0)
+        val passValue = this.activity?.getSharedPreferences("BTM_APP", 0)?.getInt("PASS_VALUE", 0)
+        val failValue = this.activity?.getSharedPreferences("BTM_APP", 0)?.getInt("FAIL_VALUE", 0)
+
         scoreOfAreaType = ArrayList()
-        scoreOfAreaType.add(50.5f)
-        scoreOfAreaType.add(52.7f)
-        scoreOfAreaType.add(56.6f)
-        scoreOfAreaType.add(53.3f)
-        scoreOfAreaType.add(58.1f)
+        scoreOfAreaType.add(analysisValue!!.toFloat())
+        scoreOfAreaType.add(calculationValue!!.toFloat())
+        scoreOfAreaType.add(intuitionValue!!.toFloat())
+        scoreOfAreaType.add(memoryValue!!.toFloat())
+        scoreOfAreaType.add(perceptionValue!!.toFloat())
 
         setHealthState()
         setBarChart()

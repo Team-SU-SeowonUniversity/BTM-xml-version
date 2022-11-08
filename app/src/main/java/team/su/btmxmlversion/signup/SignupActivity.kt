@@ -2,7 +2,7 @@ package team.su.btmxmlversion.signup
 
 import android.os.Bundle
 import com.google.android.material.tabs.TabLayoutMediator
-import team.su.btmxmlversion.config.BaseActivity
+import team.su.btmxmlversion.base.BaseActivity
 import team.su.btmxmlversion.databinding.ActivitySignupBinding
 import team.su.btmxmlversion.signup.adapter.SignupVpAdapter
 

@@ -5,7 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import team.su.btmxmlversion.config.BaseActivity
+import team.su.btmxmlversion.base.BaseActivity
 import team.su.btmxmlversion.databinding.ActivitySplashBinding
 import team.su.btmxmlversion.login.LoginActivity
 

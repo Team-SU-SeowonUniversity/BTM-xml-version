@@ -3,7 +3,7 @@ package team.su.btmxmlversion.signup.signupmanager
 import android.os.Bundle
 import android.view.View
 import team.su.btmxmlversion.R
-import team.su.btmxmlversion.config.BaseFragment
+import team.su.btmxmlversion.base.BaseFragment
 import team.su.btmxmlversion.databinding.FragmentSignupManagerBinding
 import team.su.btmxmlversion.signup.signupmanager.institution.InstitutionSignupFragment
 import team.su.btmxmlversion.signup.signupmanager.parent.ParentSignupFragment

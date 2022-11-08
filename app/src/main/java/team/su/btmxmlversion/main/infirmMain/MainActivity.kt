@@ -2,7 +2,7 @@ package team.su.btmxmlversion.main.infirmMain
 
 import android.os.Bundle
 import team.su.btmxmlversion.R
-import team.su.btmxmlversion.config.BaseActivity
+import team.su.btmxmlversion.base.BaseActivity
 import team.su.btmxmlversion.databinding.ActivityMainBinding
 import team.su.btmxmlversion.main.infirmMain.dementiaDiagnosis.DementiaDiagnosisFragment
 import team.su.btmxmlversion.main.infirmMain.myPage.MyPageFragment

@@ -4,7 +4,7 @@ import android.os.Bundle
 import android.view.View
 import com.google.android.material.tabs.TabLayoutMediator
 import team.su.btmxmlversion.R
-import team.su.btmxmlversion.config.BaseFragment
+import team.su.btmxmlversion.base.BaseFragment
 import team.su.btmxmlversion.databinding.FragmentQuizBinding
 import team.su.btmxmlversion.main.infirmMain.quiz.adapter.QuizTypeVpAdapter
 

@@ -1,8 +1,7 @@
 package team.su.btmxmlversion.main.infirmMain.quiz.calculation.arithmetic
 
 import android.os.Bundle
-import android.util.Log
-import team.su.btmxmlversion.config.BaseActivity
+import team.su.btmxmlversion.base.BaseActivity
 import team.su.btmxmlversion.databinding.ActivityMultipleChoiceQuizBinding
 import team.su.btmxmlversion.main.infirmMain.quiz.calculation.arithmetic.adapter.ArithmeticExampleRvAdapter
 import team.su.btmxmlversion.main.infirmMain.quiz.until.QuizType

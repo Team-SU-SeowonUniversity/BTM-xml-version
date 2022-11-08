@@ -6,7 +6,7 @@ import android.os.Bundle
 import android.telephony.PhoneNumberFormattingTextWatcher
 import android.view.View
 import team.su.btmxmlversion.R
-import team.su.btmxmlversion.config.BaseFragment
+import team.su.btmxmlversion.base.BaseFragment
 import team.su.btmxmlversion.databinding.FragmentInfirmBinding
 
 class InfirmFragment: BaseFragment<FragmentInfirmBinding>(FragmentInfirmBinding::bind, R.layout.fragment_infirm) {
