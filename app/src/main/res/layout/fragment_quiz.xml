@@ -11,7 +11,7 @@
         app:layout_constraintTop_toTopOf="parent"
         android:elevation="2dp"
         app:tabIndicatorAnimationMode="fade"
-        app:tabIndicatorColor="@color/quiz_type_tab_indicator_color"
+        app:tabIndicatorColor="@color/btm_base_green_100"
         app:tabIndicatorGravity="stretch"
         app:tabRippleColor="@null"
         app:tabTextAppearance="@style/quiz_type_tab_text"

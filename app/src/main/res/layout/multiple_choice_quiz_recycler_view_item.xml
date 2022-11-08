@@ -17,7 +17,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:rippleColor="@android:color/transparent"
-        app:strokeColor="@color/answer_card_stroke_color"
+        app:strokeColor="@color/btm_base_green_300"
         app:strokeWidth="3dp">
 
         <ImageView
