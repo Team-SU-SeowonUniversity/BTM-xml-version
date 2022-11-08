@@ -8,6 +8,10 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="colorAccent">#889dfe</color>
+    <!-- BTM Base Color -->
+    <color name="btm_base_green_100">#82C06A</color>
+    <color name="btm_base_green_200">#00892A</color>
+    <color name="btm_base_green_300">#064109</color>
     <!-- SignupActivity -->
     <color name="tab_indicator_color">#7EDCE9</color>
     <color name="certified_enable_button_color">#43A047</color>
@@ -16,15 +20,9 @@
     <!-- MainActivity -->
     <color name="category_button_background_color">#C3F4EC</color>
     <color name="category_button_text_color">#596780</color>
-    <color name="bottom_nav_checked_color">#064109</color>
-        <!-- MainActivity - QuizFragment-->
-        <color name="quiz_type_tab_indicator_color">#82C06A</color>
-        <color name="quiz_button_background_color">#00892A</color>
         <!-- MainActivity - MyPageFragment -->
         <color name="health_state_text_disable_color">#CFBFBF</color>
     <!-- 4지선다형 퀴즈 -->
-    <color name="timer_image_color">#82C06A</color>
     <color name="question_image_bottom_divider">#018329</color>
-    <color name="answer_card_stroke_color">#064109</color>
 
 </resources>
