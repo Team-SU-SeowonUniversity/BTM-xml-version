@@ -1,6 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/default_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/gif_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_gravity="center"
+            app:layout_constraintBottom_toBottomOf="@+id/diagnosis_button"
+            app:layout_constraintEnd_toStartOf="@+id/diagnosis_button"
+            app:layout_constraintTop_toTopOf="@+id/diagnosis_button" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/default_diagnosis_button"
+            android:layout_width="wrap_content"
+            android:layout_height="80dp"
+            android:backgroundTint="@color/btm_base_green_100"
+            android:fontFamily="@font/suit_variable"
+            android:outlineSpotShadowColor="@android:color/transparent"
+            android:text="진단하기"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            app:cornerRadius="10dp" />
+
+    </LinearLayout>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/visible_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="15dp">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/diagnosis_button"
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:backgroundTint="@color/btm_base_green_100"
+            android:fontFamily="@font/suit_variable"
+            android:outlineSpotShadowColor="@android:color/transparent"
+            android:text="진단하기"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:cornerRadius="10dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="진단내역"
+            android:textColor="@color/black"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/diagnosis_button"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/diagnosis_button" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/diagnosis_rv"
+            android:layout_width="match_parent"
+            android:layout_height="500dp"
+            android:background="@drawable/diagnosis_rv_stroke"
+            android:orientation="vertical"
+            android:overScrollMode="never"
+            android:paddingHorizontal="10dp"
+            android:paddingVertical="5dp"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@+id/diagnosis_button"
+            app:layout_constraintBottom_toBottomOf="parent"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -9,12 +9,18 @@ import kotlinx.coroutines.launch
 import team.su.btmxmlversion.config.BaseActivity
 import team.su.btmxmlversion.databinding.ActivityMultipleChoiceQuizBinding
 import team.su.btmxmlversion.main.infirmMain.quiz.memory.blinking.adapter.BlinkingAnswerRvAdapter
+import team.su.btmxmlversion.main.infirmMain.quiz.until.QuizType
 
 class BlinkingActivity: BaseActivity<ActivityMultipleChoiceQuizBinding>(ActivityMultipleChoiceQuizBinding::inflate) {
+
+    companion object {
+        const val TIMER_COUNT = 10
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        isDiagnosis = intent.getBooleanExtra("isDiagnosis", false)
         val blinkingModel = BlinkingSetting().setBlinking()
 
         binding.question.text = "Q. 깜박이는 과일은 무엇일까요?"
@@ -31,12 +37,24 @@ class BlinkingActivity: BaseActivity<ActivityMultipleChoiceQuizBinding>(Activity
                 }
             }
         }
-        setTimer(10, binding.timerCount, this)
+        setTimer(
+            count = TIMER_COUNT,
+            textView = binding.timerCount,
+            context = this
+        )
         binding.answerRv.adapter =
             BlinkingAnswerRvAdapter(
                 examples = blinkingModel.examples,
                 answer = blinkingModel.answer,
-                timeOut = { timerTask?.cancel() }
+                timeOut = { timerTask?.cancel() },
+                onPassChanged = {
+                    onQuizResult(
+                        onPass = it,
+                        quizType = QuizType.MEMORY_VALUE,
+                        count = TIMER_COUNT
+                    )
+                },
+                isDiagnosis = isDiagnosis
             )
     }
 

@@ -11,14 +11,16 @@ import team.su.btmxmlversion.main.infirmMain.quiz.perception.shadowing.models.Sh
 class AnswerRvAdapter(
     private val examples: List<ShadowingExamples>,
     private val answer: Int,
-    private val timeOut: () -> Unit
+    private val timeOut: () -> Unit,
+    private val onPassChanged: (Boolean?) -> Unit,
+    private val isDiagnosis: Boolean,
 ): RecyclerView.Adapter<AnswerRvAdapter.ViewHolder>() {
 
     inner class ViewHolder(private val binding: MultipleChoiceQuizRecyclerViewItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: ShadowingExamples) {
+        internal fun exampleBind(item: ShadowingExamples) {
             binding.exampleImage.setImageResource(item.example)
-
             binding.example.setOnClickListener {
+                onPassChanged(null)
                 if (answer == item.example) {
                     timeOut()
                     Toast.makeText(binding.root.context, "정답입니다!", Toast.LENGTH_SHORT).show()
@@ -30,6 +32,23 @@ class AnswerRvAdapter(
                 }
             }
         }
+
+        internal fun diagnosisBind(item: ShadowingExamples) {
+            binding.exampleImage.setImageResource(item.example)
+            binding.example.setOnClickListener {
+                if (answer == item.example) {
+                    timeOut()
+                    Toast.makeText(binding.root.context, "정답입니다!", Toast.LENGTH_SHORT).show()
+                    onPassChanged(true)
+                    (binding.root.context as ShadowingActivity).finish()
+                } else {
+                    timeOut()
+                    Toast.makeText(binding.root.context, "틀렸습니다!", Toast.LENGTH_SHORT).show()
+                    onPassChanged(false)
+                    (binding.root.context as ShadowingActivity).finish()
+                }
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -37,7 +56,10 @@ class AnswerRvAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(examples[position])
+        when (isDiagnosis) {
+            true -> holder.diagnosisBind(examples[position])
+            false -> holder.exampleBind(examples[position])
+        }
     }
 
     override fun getItemCount(): Int {

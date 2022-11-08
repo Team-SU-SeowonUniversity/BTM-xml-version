@@ -11,15 +11,18 @@ import team.su.btmxmlversion.main.infirmMain.quiz.memory.blinking.models.Blinkin
 class BlinkingAnswerRvAdapter(
     private val examples: List<BlinkingExamples>,
     private val answer: String,
-    private val timeOut: () -> Unit
+    private val timeOut: () -> Unit,
+    private val onPassChanged: (Boolean?) -> Unit,
+    private val isDiagnosis: Boolean,
 ): RecyclerView.Adapter<BlinkingAnswerRvAdapter.ViewHolder>() {
 
     inner class ViewHolder(private val binding: MultipleChoiceQuizRecyclerViewItemBinding) : RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: BlinkingExamples) {
+        internal fun practiceBind(item: BlinkingExamples) {
             binding.exampleText.text = item.example
             binding.exampleText.textSize = 25f
 
             binding.example.setOnClickListener {
+                onPassChanged(null)
                 if (answer == item.example) {
                     timeOut()
                     Toast.makeText(binding.root.context, "정답입니다!", Toast.LENGTH_SHORT).show()
@@ -31,6 +34,25 @@ class BlinkingAnswerRvAdapter(
                 }
             }
         }
+
+        internal fun diagnosisBind(item: BlinkingExamples) {
+            binding.exampleText.text = item.example
+            binding.exampleText.textSize = 25f
+
+            binding.example.setOnClickListener {
+                if (answer == item.example) {
+                    timeOut()
+                    Toast.makeText(binding.root.context, "정답입니다!", Toast.LENGTH_SHORT).show()
+                    onPassChanged(true)
+                    (binding.root.context as BlinkingActivity).finish()
+                } else {
+                    timeOut()
+                    Toast.makeText(binding.root.context, "틀렸습니다!", Toast.LENGTH_SHORT).show()
+                    onPassChanged(false)
+                    (binding.root.context as BlinkingActivity).finish()
+                }
+            }
+        }
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -38,7 +60,10 @@ class BlinkingAnswerRvAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(examples[position])
+        when(isDiagnosis) {
+            true -> holder.diagnosisBind(examples[position])
+            false -> holder.practiceBind(examples[position])
+        }
     }
 
     override fun getItemCount(): Int {
