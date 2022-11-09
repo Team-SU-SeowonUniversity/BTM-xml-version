@@ -6,8 +6,8 @@
 
     <com.google.android.material.card.MaterialCardView
         android:id="@+id/statement_number_card"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
         app:cardCornerRadius="40dp"
         app:layout_constraintEnd_toStartOf="@+id/diagnosis"
         app:layout_constraintTop_toTopOf="@+id/diagnosis"

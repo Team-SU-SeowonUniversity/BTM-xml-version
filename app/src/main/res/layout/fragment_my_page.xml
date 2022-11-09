@@ -7,18 +7,32 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:padding="20dp">
+        android:paddingHorizontal="20dp">
 
         <TextView
             android:id="@+id/my_profile_text"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
             android:text="@string/my_profile_text"
             android:textColor="@color/black"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/logout_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="@color/btm_base_green_200"
+            android:fontFamily="@font/suit_variable"
+            android:text="@string/logout_text"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="@+id/my_profile_text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/my_profile_text" />
 
         <com.google.android.material.card.MaterialCardView
             android:id="@+id/my_profile"
@@ -280,9 +294,9 @@
         <com.github.mikephil.charting.charts.HorizontalBarChart
             android:id="@+id/bar_chart"
             android:layout_width="match_parent"
-            android:background="@color/white"
-            android:layout_marginTop="10dp"
             android:layout_height="300dp"
+            android:layout_marginTop="10dp"
+            android:background="@color/white"
             app:layout_constraintTop_toBottomOf="@id/analysis_graph_text" />
 
 

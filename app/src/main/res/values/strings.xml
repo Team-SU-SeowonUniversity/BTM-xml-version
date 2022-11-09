@@ -28,4 +28,6 @@
     <string name="my_profile_text">내 정보</string>
     <string name="health_state_text">건강 상태</string>
     <string name="analysis_graph_text">분석 그래프</string>
+    <string name="name_text">이름</string>
+    <string name="logout_text">로그아웃</string>
 </resources>

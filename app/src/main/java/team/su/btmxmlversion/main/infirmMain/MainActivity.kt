@@ -1,6 +1,7 @@
 package team.su.btmxmlversion.main.infirmMain
 
 import android.os.Bundle
+import android.util.Log
 import team.su.btmxmlversion.R
 import team.su.btmxmlversion.base.BaseActivity
 import team.su.btmxmlversion.databinding.ActivityMainBinding
