@@ -6,6 +6,7 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
+        android:usesCleartextTraffic="true"
         android:name=".base.ApplicationClass"
         android:allowBackup="true"
         android:dataExtractionRules="@xml/data_extraction_rules"
@@ -17,7 +18,7 @@
         android:theme="@style/Theme.BTMXmlVersion"
         tools:targetApi="31">
         <activity
-            android:name=".splash.SplashActivity"
+            android:name=".ui.splash.SplashActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -26,15 +27,15 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".login.LoginActivity" />
-        <activity android:name=".main.infirmMain.MainActivity" />
-        <activity android:name=".signup.SignupActivity" />
-        <activity android:name=".main.infirmMain.quiz.intuition.shadowing.ShadowingActivity" />
-        <activity android:name=".main.infirmMain.quiz.calculation.arithmetic.ArithmeticActivity" />
-        <activity android:name=".main.infirmMain.quiz.analysis.weather.WeatherActivity" />
-        <activity android:name=".main.infirmMain.quiz.perception.blinking.BlinkingActivity" />
-        <activity android:name=".main.infirmMain.quiz.memory.HwatuCard.HwatuCardActivity" />
-        <activity android:name=".main.infirmMain.dementiaDiagnosis.DiagnosisResultActivity" />
+        <activity android:name=".ui.login.LoginActivity" />
+        <activity android:name=".ui.main.infirmMain.MainActivity" />
+        <activity android:name=".ui.signup.SignupActivity" />
+        <activity android:name=".ui.main.infirmMain.quiz.intuition.shadowing.ShadowingActivity" />
+        <activity android:name=".ui.main.infirmMain.quiz.calculation.arithmetic.ArithmeticActivity" />
+        <activity android:name=".ui.main.infirmMain.quiz.analysis.weather.WeatherActivity" />
+        <activity android:name=".ui.main.infirmMain.quiz.perception.blinking.BlinkingActivity" />
+        <activity android:name=".ui.main.infirmMain.quiz.memory.HwatuCard.HwatuCardActivity" />
+        <activity android:name=".ui.main.infirmMain.dementiaDiagnosis.DiagnosisResultActivity" />
         <!--<activity android:name=".splash.SplashActivity" />-->
     </application>
 
