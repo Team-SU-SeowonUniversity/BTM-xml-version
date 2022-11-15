@@ -80,7 +80,6 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
 
     override fun getRetrofitException() {
         showCustomToast("통신 오류")
-        dismissLoadingDialog()
     }
 
 }

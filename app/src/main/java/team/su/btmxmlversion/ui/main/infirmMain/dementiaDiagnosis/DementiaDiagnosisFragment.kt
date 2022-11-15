@@ -3,12 +3,12 @@ package team.su.btmxmlversion.ui.main.infirmMain.dementiaDiagnosis
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.SharedPreferences
+import android.os.Bundle
 import android.view.View
 import com.bumptech.glide.Glide
 import team.su.btmxmlversion.R
 import team.su.btmxmlversion.base.BaseFragment
 import team.su.btmxmlversion.databinding.FragmentDementiaDiagnosisBinding
-import team.su.btmxmlversion.dto.DiagnosisHistoryRequestBody
 import team.su.btmxmlversion.models.DiagnosisHistoryResponse
 import team.su.btmxmlversion.network.CommonDataServiceLocator
 import team.su.btmxmlversion.repository.DiagnosisRepository
