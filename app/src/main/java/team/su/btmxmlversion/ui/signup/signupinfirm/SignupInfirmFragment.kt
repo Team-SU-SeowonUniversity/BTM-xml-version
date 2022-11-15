@@ -40,11 +40,9 @@ class SignupInfirmFragment:
                         .tryInfirmSignup(SignupInfirmRequestBody(phoneNumber, name), this)
                 } else {
                     showCustomToast("이름을 한글만 입력해주세요.")
-                    Log.d("이름 문제", "이름 문제")
                 }
             } else {
                 showCustomToast("전화번호 다시 입력 해주세요.")
-                Log.d("전화번호 문제", "전화번호 문제")
             }
 
         }

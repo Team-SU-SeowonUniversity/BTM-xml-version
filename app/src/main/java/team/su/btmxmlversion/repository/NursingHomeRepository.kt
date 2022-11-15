@@ -7,7 +7,7 @@ import team.su.btmxmlversion.models.NursingHomeResponse
 import team.su.btmxmlversion.ui.signup.service.NursingHomeService
 import team.su.btmxmlversion.ui.signup.signupmanager.institution.InstitutionSignupCallback
 
-class SignupRepository(
+class NursingHomeRepository(
     private val nursingHomeService: NursingHomeService,
 ) {
     fun tryGetNursingHome(institutionSignupCallback: InstitutionSignupCallback) {

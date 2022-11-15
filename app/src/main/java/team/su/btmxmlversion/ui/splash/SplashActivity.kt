@@ -22,7 +22,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding
         }
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val isAutoLogin = getSharedPreferences("USER_INFO", 0).getBoolean("AUTO_LOGIN", false)
+            val isAutoLogin = getSharedPreferences("BTM_APP", 0).getBoolean("AUTO_LOGIN", false)
 
             if(isAutoLogin) {
                 startActivity(Intent(this, MainActivity::class.java))

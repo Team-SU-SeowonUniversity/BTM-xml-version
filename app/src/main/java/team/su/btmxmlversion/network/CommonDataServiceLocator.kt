@@ -4,14 +4,16 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import retrofit2.create
 import team.su.btmxmlversion.BuildConfig
+import team.su.btmxmlversion.ui.login.service.LoginService
 import team.su.btmxmlversion.ui.signup.service.NursingHomeService
 import team.su.btmxmlversion.ui.signup.service.SignupService
 import java.util.concurrent.TimeUnit
 
 object CommonDataServiceLocator {
     private const val BASE_URL = BuildConfig.URL_NURSING_HOME
-    private const val BTM_URL = "http://10.0.2.2:9030"
+    private const val BTM_URL = "http://116.40.6.160:9030"
 
     private val client: OkHttpClient = OkHttpClient.Builder()
         .readTimeout(5000, TimeUnit.MILLISECONDS)
@@ -32,5 +34,6 @@ object CommonDataServiceLocator {
         .build()
 
     val nursingHomeService: NursingHomeService = retrofit.create(NursingHomeService::class.java)
+    val loginService: LoginService = BTMRetrofit.create(LoginService::class.java)
     val signupService: SignupService = BTMRetrofit.create(SignupService::class.java)
 }

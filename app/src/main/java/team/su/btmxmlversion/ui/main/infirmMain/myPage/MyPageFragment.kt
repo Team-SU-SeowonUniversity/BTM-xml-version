@@ -39,8 +39,6 @@ class MyPageFragment: BaseFragment<FragmentMyPageBinding>(FragmentMyPageBinding:
         val infirmName = userInfo?.getString("USING_USER_NAME", "")
         val infirmPhoneNumber = userInfo?.getString("USING_USER_PHONE_NUMBER", "")
 
-        Log.d("뭐지?", "$infirmName, $infirmPhoneNumber ")
-
         binding.infirmName.text = infirmName!!
         binding.infirmPhoneNumber.text = infirmPhoneNumber!!
 

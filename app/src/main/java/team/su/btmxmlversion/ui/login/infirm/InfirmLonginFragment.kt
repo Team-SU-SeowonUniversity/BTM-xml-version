@@ -10,7 +10,7 @@ import team.su.btmxmlversion.base.BaseFragment
 import team.su.btmxmlversion.databinding.FragmentInfirmBinding
 import team.su.btmxmlversion.ui.login.LoginViewModel
 
-class InfirmFragment: BaseFragment<FragmentInfirmBinding>(FragmentInfirmBinding::bind, R.layout.fragment_infirm) {
+class InfirmLonginFragment: BaseFragment<FragmentInfirmBinding>(FragmentInfirmBinding::bind, R.layout.fragment_infirm) {
 
     private val viewModel: LoginViewModel by activityViewModels()
 
@@ -27,10 +27,10 @@ class InfirmFragment: BaseFragment<FragmentInfirmBinding>(FragmentInfirmBinding:
     }
 
     inner class TextWatcher : PhoneNumberFormattingTextWatcher(){
-        override fun afterTextChanged(s: Editable?) {
-            super.afterTextChanged(s)
+        override fun afterTextChanged(phoneNumber: Editable?) {
+            super.afterTextChanged(phoneNumber)
 
-            viewModel.setData(s.toString())
+            viewModel.setData(phoneNumber.toString())
         }
     }
 }

@@ -3,7 +3,7 @@ package team.su.btmxmlversion.ui.login.adapter
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentActivity
 import androidx.viewpager2.adapter.FragmentStateAdapter
-import team.su.btmxmlversion.ui.login.infirm.InfirmFragment
+import team.su.btmxmlversion.ui.login.infirm.InfirmLonginFragment
 import team.su.btmxmlversion.ui.login.manager.ManagerFragment
 
 class LoginVpAdapter(fragment: FragmentActivity) : FragmentStateAdapter(fragment) {
@@ -14,7 +14,7 @@ class LoginVpAdapter(fragment: FragmentActivity) : FragmentStateAdapter(fragment
 
     override fun createFragment(position: Int): Fragment {
         return when(position) {
-            0 -> InfirmFragment()
+            0 -> InfirmLonginFragment()
             else -> ManagerFragment()
         }
     }

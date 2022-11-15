@@ -8,7 +8,7 @@ import team.su.btmxmlversion.R
 import team.su.btmxmlversion.base.BaseFragment
 import team.su.btmxmlversion.databinding.FragmentSignupInstitutionBinding
 import team.su.btmxmlversion.network.CommonDataServiceLocator
-import team.su.btmxmlversion.repository.SignupRepository
+import team.su.btmxmlversion.repository.NursingHomeRepository
 import team.su.btmxmlversion.models.NursingHomeResponse
 import team.su.btmxmlversion.ui.main.infirmMain.MainActivity
 import team.su.btmxmlversion.ui.signup.SignupActivity
@@ -36,7 +36,7 @@ class InstitutionSignupFragment:
 
         binding.certifiedBtn.setOnClickListener {
             showLoadingDialog(binding.root.context)
-            SignupRepository(CommonDataServiceLocator.nursingHomeService).tryGetNursingHome(this)
+            NursingHomeRepository(CommonDataServiceLocator.nursingHomeService).tryGetNursingHome(this)
         }
 
     }
