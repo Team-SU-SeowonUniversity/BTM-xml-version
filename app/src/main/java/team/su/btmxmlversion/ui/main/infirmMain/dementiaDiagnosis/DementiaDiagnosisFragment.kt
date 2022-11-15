@@ -3,12 +3,15 @@ package team.su.btmxmlversion.ui.main.infirmMain.dementiaDiagnosis
 import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.SharedPreferences
-import android.util.Log
 import android.view.View
 import com.bumptech.glide.Glide
 import team.su.btmxmlversion.R
 import team.su.btmxmlversion.base.BaseFragment
 import team.su.btmxmlversion.databinding.FragmentDementiaDiagnosisBinding
+import team.su.btmxmlversion.dto.DiagnosisHistoryRequestBody
+import team.su.btmxmlversion.models.DiagnosisHistoryResponse
+import team.su.btmxmlversion.network.CommonDataServiceLocator
+import team.su.btmxmlversion.repository.DiagnosisRepository
 import team.su.btmxmlversion.ui.main.infirmMain.dementiaDiagnosis.adapter.DiagnosisStatementRvAdapter
 import team.su.btmxmlversion.ui.main.infirmMain.dementiaDiagnosis.data.DiagnosisStatement
 import team.su.btmxmlversion.ui.main.infirmMain.quiz.analysis.weather.WeatherActivity
@@ -18,21 +21,17 @@ import team.su.btmxmlversion.ui.main.infirmMain.quiz.memory.HwatuCard.HwatuCardA
 import team.su.btmxmlversion.ui.main.infirmMain.quiz.perception.blinking.BlinkingActivity
 
 class DementiaDiagnosisFragment:
-    BaseFragment<FragmentDementiaDiagnosisBinding>(FragmentDementiaDiagnosisBinding::bind, R.layout.fragment_dementia_diagnosis) {
+    BaseFragment<FragmentDementiaDiagnosisBinding>(FragmentDementiaDiagnosisBinding::bind, R.layout.fragment_dementia_diagnosis), DementiaDiagnosisCallback
+{
 
     override fun onResume() {
         super.onResume()
-        val sharedPreferencesBTMAPP = this.activity?.getSharedPreferences("BTM_APP",0)
-        val diagnosisResult = this.activity?.getSharedPreferences("DIAGNOSIS_RESULT",0)
 
-        when(diagnosisResult?.getInt("NUMBER",0)) {
-            0 -> {
-                setDefaultUi()
-            }
-            else -> {
-                setVisitedUi()
-            }
-        }
+        val sharedPreferencesBTMAPP = this.activity?.getSharedPreferences("BTM_APP",0)
+        val usingPhoneNumber = sharedPreferencesBTMAPP?.getString("usingPhoneNumber", "").toString()
+
+        DiagnosisRepository(CommonDataServiceLocator.diagnosisService)
+            .tryLoginInfirm(usingPhoneNumber,this)
 
         binding.diagnosisButton.setOnClickListener {
             startDiagnosis(sharedPreferences = sharedPreferencesBTMAPP)
@@ -45,33 +44,17 @@ class DementiaDiagnosisFragment:
 
     }
 
-    private fun setDefaultUi() {
-        binding.defaultLayout.visibility = View.VISIBLE
-        binding.visibleLayout.visibility = View.GONE
-        Glide
-            .with(this)
-            .load(R.raw.diagnosis_gif)
-            .into(binding.gifImage)
-    }
-
-    private fun setVisitedUi() {
-        binding.defaultLayout.visibility = View.GONE
-        binding.visibleLayout.visibility = View.VISIBLE
-        binding.diagnosisRv.adapter = DiagnosisStatementRvAdapter(setAddUserData())
-    }
-
-    private fun setAddUserData(): List<DiagnosisStatement> {
+    private fun setAddDiagnosisStatementData(response: DiagnosisHistoryResponse): List<DiagnosisStatement> {
         val item = arrayListOf<DiagnosisStatement>()
+        val result = response.result
 
-        val numberOfItems = this.activity?.getSharedPreferences("DIAGNOSIS_RESULT",0)?.getInt("NUMBER", 0)
-
-        for (number in 1..numberOfItems!!) {
+        for (i in response.result.indices) {
             item.add(
                 DiagnosisStatement(
-                    resultNumber = number,
-                    diagnosisTime = this.activity?.getSharedPreferences("DIAGNOSIS_RESULT",0)?.getString("${number}_ITEM_RESULT_TIME", ""),
-                    pass = this.activity?.getSharedPreferences("DIAGNOSIS_RESULT",0)?.getInt("${number}_ITEM_PASS", 0),
-                    fail = this.activity?.getSharedPreferences("DIAGNOSIS_RESULT",0)?.getInt("${number}_ITEM_FAIL", 0),
+                    resultNumber = result[i].resultNumber,
+                    diagnosisTime = result[i].diagnosisTime,
+                    pass = result[i].pass,
+                    fail = result[i].fail,
                 )
             )
         }
@@ -128,6 +111,32 @@ class DementiaDiagnosisFragment:
             intent?.putExtra("isDiagnosis", true)
             activity?.startActivity(intent)
         }
+    }
+
+    override fun getDiagnosisHistory(response: DiagnosisHistoryResponse) {
+        showLoadingDialog(binding.root.context)
+
+        when(response.result_code) {
+            100 -> {
+                binding.defaultLayout.visibility = View.GONE
+                binding.visibleLayout.visibility = View.VISIBLE
+                binding.diagnosisRv.adapter = DiagnosisStatementRvAdapter(setAddDiagnosisStatementData(response))
+            }
+            200 -> {
+                binding.defaultLayout.visibility = View.VISIBLE
+                binding.visibleLayout.visibility = View.GONE
+                Glide
+                    .with(this)
+                    .load(R.raw.diagnosis_gif)
+                    .into(binding.gifImage)
+            }
+        }
+
+        dismissLoadingDialog()
+    }
+
+    override fun getRetrofitException() {
+        showCustomToast("통신 오류")
     }
 
 }

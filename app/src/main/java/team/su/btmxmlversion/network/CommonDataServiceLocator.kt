@@ -6,7 +6,9 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.create
 import team.su.btmxmlversion.BuildConfig
+import team.su.btmxmlversion.models.DiagnosisHistory
 import team.su.btmxmlversion.ui.login.service.LoginService
+import team.su.btmxmlversion.ui.main.infirmMain.dementiaDiagnosis.service.DiagnosisService
 import team.su.btmxmlversion.ui.signup.service.NursingHomeService
 import team.su.btmxmlversion.ui.signup.service.SignupService
 import java.util.concurrent.TimeUnit
@@ -36,4 +38,5 @@ object CommonDataServiceLocator {
     val nursingHomeService: NursingHomeService = retrofit.create(NursingHomeService::class.java)
     val loginService: LoginService = BTMRetrofit.create(LoginService::class.java)
     val signupService: SignupService = BTMRetrofit.create(SignupService::class.java)
+    val diagnosisService: DiagnosisService = BTMRetrofit.create(DiagnosisService::class.java)
 }
