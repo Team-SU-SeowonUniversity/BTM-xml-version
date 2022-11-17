@@ -11,7 +11,7 @@ class DiagnosisRepository(
     private val diagnosisService: DiagnosisService
 ) {
 
-    fun tryLoginInfirm(phoneNumber: String, dementiaDiagnosisCallback: DementiaDiagnosisCallback) {
+    fun tryGetDiagnosisHistory(phoneNumber: String, dementiaDiagnosisCallback: DementiaDiagnosisCallback) {
         diagnosisService.diagnosisHistory(phoneNumber).enqueue(object :
             Callback<DiagnosisHistoryResponse> {
             override fun onResponse(
