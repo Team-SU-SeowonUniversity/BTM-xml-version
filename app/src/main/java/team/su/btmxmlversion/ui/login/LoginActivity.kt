@@ -65,8 +65,8 @@ class LoginActivity: BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::in
         if (response.result_code == 100) {
             val sharedPreferences = getSharedPreferences("BTM_APP", 0)
             sharedPreferences.edit().apply {
-                putString("usingPhoneNumber", inputPhoneNumber)
-                putString("usingInfirmName", response.name)
+                putString("uuid", inputPhoneNumber)
+                putBoolean("autoLogin", true)
             }.apply()
 
             startActivity(Intent(this, MainActivity::class.java))

@@ -22,7 +22,7 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding
         }
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val isAutoLogin = getSharedPreferences("BTM_APP", 0).getBoolean("AUTO_LOGIN", false)
+            val isAutoLogin = getSharedPreferences("BTM_APP", 0).getBoolean("autoLogin", false)
 
             if(isAutoLogin) {
                 startActivity(Intent(this, MainActivity::class.java))
@@ -31,7 +31,6 @@ class SplashActivity : BaseActivity<ActivitySplashBinding>(ActivitySplashBinding
                 startActivity(Intent(this, team.su.btmxmlversion.ui.login.LoginActivity::class.java))
                 finish()
             }
-
         }, 1500)
 
     }

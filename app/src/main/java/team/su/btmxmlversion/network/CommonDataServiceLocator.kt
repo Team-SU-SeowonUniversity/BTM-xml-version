@@ -9,6 +9,7 @@ import team.su.btmxmlversion.BuildConfig
 import team.su.btmxmlversion.models.DiagnosisHistory
 import team.su.btmxmlversion.ui.login.service.LoginService
 import team.su.btmxmlversion.ui.main.infirmMain.dementiaDiagnosis.service.DiagnosisService
+import team.su.btmxmlversion.ui.main.infirmMain.myPage.service.InfirmUserInfoService
 import team.su.btmxmlversion.ui.signup.service.NursingHomeService
 import team.su.btmxmlversion.ui.signup.service.SignupService
 import java.util.concurrent.TimeUnit
@@ -39,4 +40,5 @@ object CommonDataServiceLocator {
     val loginService: LoginService = BTMRetrofit.create(LoginService::class.java)
     val signupService: SignupService = BTMRetrofit.create(SignupService::class.java)
     val diagnosisService: DiagnosisService = BTMRetrofit.create(DiagnosisService::class.java)
+    val infirmUserInfoService: InfirmUserInfoService = BTMRetrofit.create(InfirmUserInfoService::class.java)
 }

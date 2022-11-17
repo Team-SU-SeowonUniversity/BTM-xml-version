@@ -6,97 +6,54 @@ import android.os.Bundle
 import android.util.Log
 import android.view.View
 import androidx.core.content.ContextCompat
+import androidx.lifecycle.lifecycleScope
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
+import kotlinx.coroutines.launch
 import team.su.btmxmlversion.R
 import team.su.btmxmlversion.base.BaseFragment
 import team.su.btmxmlversion.databinding.FragmentMyPageBinding
+import team.su.btmxmlversion.models.InfirmUserInfoResponse
+import team.su.btmxmlversion.network.CommonDataServiceLocator
+import team.su.btmxmlversion.repository.InfirmUserRepository
 
-class MyPageFragment: BaseFragment<FragmentMyPageBinding>(FragmentMyPageBinding::bind, R.layout.fragment_my_page) {
+class MyPageFragment:
+    BaseFragment<FragmentMyPageBinding>(FragmentMyPageBinding::bind, R.layout.fragment_my_page)
+{
 
-    companion object {
-        private lateinit var barList: ArrayList<BarEntry>
-        private lateinit var barDataSet: BarDataSet
-        private lateinit var barData: BarData
-    }
+    private lateinit var barList: ArrayList<BarEntry>
+    private lateinit var barDataSet: BarDataSet
+    private lateinit var barData: BarData
 
     private lateinit var scoreOfAreaType: ArrayList<Float>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val score = this.activity?.getSharedPreferences("SCORE",0)
-        val intuitionScore = score?.getFloat("INTUITION_SCORE", 0f)
-        val analysisScore = score?.getFloat("ANALYSIS_SCORE", 0f)
-        val calculationScore = score?.getFloat("CALCULATION_SCORE", 0f)
-        val memoryScore = score?.getFloat("MEMORY_SCORE", 0f)
-        val perceptionScore = score?.getFloat("PERCEPTION_SCORE", 0f)
+        val sharedPreferences = this.activity?.getSharedPreferences("BTM_APP",0)
+        val phoneNumber = sharedPreferences?.getString("uuid", "").toString()
 
-        val userInfo = this.activity?.getSharedPreferences("USER_INFO", 0)
-        val infirmName = userInfo?.getString("USING_USER_NAME", "")
-        val infirmPhoneNumber = userInfo?.getString("USING_USER_PHONE_NUMBER", "")
-
-        binding.infirmName.text = infirmName!!
-        binding.infirmPhoneNumber.text = infirmPhoneNumber!!
-
-        scoreOfAreaType = ArrayList()
-        scoreOfAreaType.add(perceptionScore!!.toFloat())
-        scoreOfAreaType.add(memoryScore!!.toFloat())
-        scoreOfAreaType.add(intuitionScore!!.toFloat())
-        scoreOfAreaType.add(calculationScore!!.toFloat())
-        scoreOfAreaType.add(analysisScore!!.toFloat())
-
-        setHealthState()
-        setBarChart()
-
-        // 관지라 연동 추후 반영 예정
-        binding.managerImage.setImageResource(R.drawable.question_mark)
-        binding.managerName.text = "연결되지 않음"
-        binding.managerEmailAddress.visibility = View.INVISIBLE
-
+        lifecycleScope.launch {
+            val result = InfirmUserRepository(CommonDataServiceLocator.infirmUserInfoService).tryGetInfirmUserInfo(phoneNumber)
+            getInfirmUserInfoSuccess(result)
+            setHealthState()
+            setBarChart()
+            binding.barChart.invalidate()
+        }
     }
 
     override fun onResume() {
         super.onResume()
 
         binding.logoutButton.setOnClickListener { // 로그아웃 버튼
+            val sharedPreferences = this.activity?.getSharedPreferences("BTM_APP", 0)
 
-            val userInfo = this.activity?.getSharedPreferences("USER_INFO", 0)
-
-            userInfo?.edit()?.putBoolean("AUTO_LOGIN", false)?.apply() // 자동 로그인 해제
-
-            val user = this.activity?.getSharedPreferences("${userInfo?.getString("USING_USER_PHONE_NUMBER","")}",0)
-
-            user?.edit()?.apply { // 진단 내역 데이터, 그래프 점수, 이름 저장
-                val score = this@MyPageFragment.activity?.getSharedPreferences("SCORE", 0)
-                val intuitionScore = score?.getFloat("INTUITION_SCORE", 0f)
-                val analysisScore = score?.getFloat("ANALYSIS_SCORE", 0f)
-                val calculationScore = score?.getFloat("CALCULATION_SCORE", 0f)
-                val memoryScore = score?.getFloat("MEMORY_SCORE", 0f)
-                val perceptionScore = score?.getFloat("PERCEPTION_SCORE", 0f)
-
-                val diagnosisResult = this@MyPageFragment.activity?.getSharedPreferences("DIAGNOSIS_RESULT",0)
-                val diagnosisNum = diagnosisResult?.getInt("NUMBER", 0)
-
-                val name = userInfo?.getString("USING_USER_NAME", "")
-
-                putFloat("intuitionScore", intuitionScore!!)
-                putFloat("analysisScore", analysisScore!!)
-                putFloat("calculationScore", calculationScore!!)
-                putFloat("memoryScore", memoryScore!!)
-                putFloat("perceptionScore", perceptionScore!!)
-                putInt("diagnosisNum", diagnosisNum!!)
-                putString("name", name)
-
-                for (number in 1..diagnosisNum) {
-                    putString("${number}_itemResultTime", diagnosisResult.getString("${number}_ITEM_RESULT_TIME", ""))
-                    putInt("${number}_itemPass", diagnosisResult.getInt("${number}_ITEM_PASS", 0))
-                    putInt("${number}_itemFail", diagnosisResult.getInt("${number}_ITEM_FAIL", 0))
-                }
-
+            sharedPreferences?.edit()?.apply {
+                putString("uuid", null)
+                putBoolean("autoLogin", false)
             }?.apply()
 
             startActivity(Intent(binding.root.context, team.su.btmxmlversion.ui.login.LoginActivity::class.java))
@@ -194,6 +151,8 @@ class MyPageFragment: BaseFragment<FragmentMyPageBinding>(FragmentMyPageBinding:
     private fun setBarChart() {
         val labelList = listOf("분석", "계산", "직감", "기억", "지각")
 
+        Log.d("scoreOfAreaType", "$scoreOfAreaType")
+
         barList = ArrayList()
         barList.add(BarEntry(0f,scoreOfAreaType[4]))
         barList.add(BarEntry(1f,scoreOfAreaType[3]))
@@ -202,9 +161,12 @@ class MyPageFragment: BaseFragment<FragmentMyPageBinding>(FragmentMyPageBinding:
         barList.add(BarEntry(4f,scoreOfAreaType[0]))
 
         barDataSet = BarDataSet(barList,null)
-        barDataSet.color = Color.GREEN
-        barDataSet.valueTextColor = Color.BLACK
-        barDataSet.valueTextSize = 15f
+        barDataSet.apply {
+            color = Color.GREEN
+            valueTextColor = Color.BLACK
+            valueTextSize = 15f
+        }
+
 
         barData = BarData(barDataSet)
         barData.barWidth = 0.5f
@@ -235,6 +197,34 @@ class MyPageFragment: BaseFragment<FragmentMyPageBinding>(FragmentMyPageBinding:
         axisRight.setDrawLabels(false) // label 삭제
         axisRight.setDrawGridLines(false)
         axisRight.setDrawAxisLine(false)
+
+    }
+
+    private fun getInfirmUserInfoSuccess(response: InfirmUserInfoResponse) {
+        showLoadingDialog(binding.root.context)
+
+        binding.infirmName.text = response.name
+        binding.infirmPhoneNumber.text = response.phoneNumber
+
+        if (response.managerEmail == null) {
+            binding.managerName.text = "연결되지 않음"
+            binding.managerEmailAddress.visibility = View.INVISIBLE
+        } else {
+            binding.managerName.text = response.managerName
+            binding.managerEmailAddress.text = response.managerEmail
+            binding.managerImage.setImageResource(R.drawable.default_profile_image)
+        }
+
+        val data = response.typeScore
+
+        scoreOfAreaType = ArrayList()
+        scoreOfAreaType.add(data.perceptionScore)
+        scoreOfAreaType.add(data.memoryScore)
+        scoreOfAreaType.add(data.intuitionScore)
+        scoreOfAreaType.add(data.calculationScore)
+        scoreOfAreaType.add(data.analysisScore)
+
+        dismissLoadingDialog()
     }
 
 }

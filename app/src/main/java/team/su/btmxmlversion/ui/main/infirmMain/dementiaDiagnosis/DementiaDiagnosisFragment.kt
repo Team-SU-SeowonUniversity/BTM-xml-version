@@ -28,17 +28,16 @@ class DementiaDiagnosisFragment:
         super.onResume()
 
         val sharedPreferencesBTMAPP = this.activity?.getSharedPreferences("BTM_APP",0)
-        val usingPhoneNumber = sharedPreferencesBTMAPP?.getString("usingPhoneNumber", "").toString()
+        val usingPhoneNumber = sharedPreferencesBTMAPP?.getString("uuid", "").toString()
 
         DiagnosisRepository(CommonDataServiceLocator.diagnosisService)
-            .tryLoginInfirm(usingPhoneNumber,this)
+            .tryGetDiagnosisHistory(usingPhoneNumber,this)
 
         binding.diagnosisButton.setOnClickListener {
             startDiagnosis(sharedPreferences = sharedPreferencesBTMAPP)
         }
 
         binding.defaultDiagnosisButton.setOnClickListener {
-            sharedPreferencesBTMAPP?.edit()?.putBoolean("isFirstDiagnosis",true)?.apply()
             startDiagnosis(sharedPreferences = sharedPreferencesBTMAPP)
         }
 

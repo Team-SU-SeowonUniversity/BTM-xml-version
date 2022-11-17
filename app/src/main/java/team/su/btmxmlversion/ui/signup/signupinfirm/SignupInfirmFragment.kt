@@ -35,7 +35,6 @@ class SignupInfirmFragment:
 
             if (Pattern.matches("^\\d{3}-\\d{3,4}-\\d{4}$", phoneNumber)) {
                 if (Pattern.matches("^[가-힣]*$", name)) {
-                    showLoadingDialog(binding.root.context)
                     SignupInfirmRepository(CommonDataServiceLocator.signupService)
                         .tryInfirmSignup(SignupInfirmRequestBody(phoneNumber, name), this)
                 } else {
@@ -44,28 +43,30 @@ class SignupInfirmFragment:
             } else {
                 showCustomToast("전화번호 다시 입력 해주세요.")
             }
-
         }
     }
 
     override fun signupInfirmSuccess(response: SignupInfirmResponse) {
+        showLoadingDialog(binding.root.context)
+
         if (response.result_code == 100) {
             val sharedPreferences = this.activity?.getSharedPreferences("BTM_APP", 0)
 
-            sharedPreferences?.edit()?.putString("usingPhoneNumber", binding.phoneNumInput.text.toString())
-                ?.apply() // 자동 로그인을 위해 SharedPreference 에 전화번호 저장
+            sharedPreferences?.edit()?.apply {
+                putString("uuid", binding.phoneNumInput.text.toString())
+                putBoolean("autoLogin", true)
+            }?.apply()
 
             startActivity(Intent(binding.root.context, MainActivity::class.java))
             ActivityCompat.finishAffinity(context as SignupActivity)
         }
-
         showCustomToast(response.message)
+
         dismissLoadingDialog()
     }
 
     override fun getRetrofitException() {
         showCustomToast("통신 오류")
-        dismissLoadingDialog()
     }
 
 }
