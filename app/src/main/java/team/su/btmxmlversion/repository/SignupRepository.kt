@@ -4,8 +4,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import team.su.btmxmlversion.dto.SignupInfirmRequestBody
+import team.su.btmxmlversion.dto.SignupInstitutionBody
 import team.su.btmxmlversion.models.CertifiedResultResponse
 import team.su.btmxmlversion.models.SignupInfirmResponse
+import team.su.btmxmlversion.models.SignupInstitutionResponse
 import team.su.btmxmlversion.ui.signup.service.SignupService
 import team.su.btmxmlversion.ui.signup.signupinfirm.SignupInfirmCallback
 import team.su.btmxmlversion.ui.signup.signupmanager.institution.InstitutionSignupCallback
@@ -49,5 +51,22 @@ class SignupRepository(
         })
     }
 
+    fun tryInstitutionSignup(institutionDTO: SignupInstitutionBody, institutionSignupCallback: InstitutionSignupCallback) {
+        signupService.signupInstitution(institutionDTO).enqueue(object :
+        Callback<SignupInstitutionResponse> {
+            override fun onResponse(
+                call: Call<SignupInstitutionResponse>,
+                response: Response<SignupInstitutionResponse>
+            ) {
+                val body = requireNotNull(response.body())
+
+                institutionSignupCallback.getInstitutionSignupSuccess(body)
+            }
+
+            override fun onFailure(call: Call<SignupInstitutionResponse>, t: Throwable) {
+                institutionSignupCallback.getRetrofitException()
+            }
+        })
+    }
 
 }

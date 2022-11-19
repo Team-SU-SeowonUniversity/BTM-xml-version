@@ -19,12 +19,7 @@ class NursingHomeRepository(
             ) {
                 val body = requireNotNull(response.body())
 
-                if (response.isSuccessful) {
-                    institutionSignupCallback.getNursingHomeDataSuccess(body)
-                } else {
-                    institutionSignupCallback.getNursingHomeDataFailure()
-                }
-
+                institutionSignupCallback.getNursingHomeDataSuccess(body)
             }
 
             override fun onFailure(call: Call<NursingHomeResponse>, t: Throwable) {
