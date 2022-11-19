@@ -3,7 +3,6 @@ package team.su.btmxmlversion.ui.main.infirmMain.myPage
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import androidx.core.content.ContextCompat
 import androidx.lifecycle.lifecycleScope
@@ -23,21 +22,19 @@ import team.su.btmxmlversion.repository.InfirmUserRepository
 class MyPageFragment:
     BaseFragment<FragmentMyPageBinding>(FragmentMyPageBinding::bind, R.layout.fragment_my_page)
 {
-
     private lateinit var barList: ArrayList<BarEntry>
     private lateinit var barDataSet: BarDataSet
     private lateinit var barData: BarData
-
     private lateinit var scoreOfAreaType: ArrayList<Float>
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val sharedPreferences = this.activity?.getSharedPreferences("BTM_APP",0)
-        val phoneNumber = sharedPreferences?.getString("uuid", "").toString()
+        val uuid = sharedPreferences?.getString("uuid", "").toString()
 
         lifecycleScope.launch {
-            val result = InfirmUserRepository(CommonDataServiceLocator.infirmUserInfoService).tryGetInfirmUserInfo(phoneNumber)
+            val result = InfirmUserRepository(CommonDataServiceLocator.infirmUserInfoService).tryGetInfirmUserInfo(uuid)
             getInfirmUserInfoSuccess(result)
             setHealthState()
             setBarChart()
@@ -150,8 +147,6 @@ class MyPageFragment:
 
     private fun setBarChart() {
         val labelList = listOf("분석", "계산", "직감", "기억", "지각")
-
-        Log.d("scoreOfAreaType", "$scoreOfAreaType")
 
         barList = ArrayList()
         barList.add(BarEntry(0f,scoreOfAreaType[4]))

@@ -3,7 +3,9 @@ package team.su.btmxmlversion.repository
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import team.su.btmxmlversion.dto.UpdateDiagnosisDementiaRequestBody
 import team.su.btmxmlversion.models.DiagnosisHistoryResponse
+import team.su.btmxmlversion.models.UpdateDiagnosisDementiaResponse
 import team.su.btmxmlversion.ui.main.infirmMain.dementiaDiagnosis.DementiaDiagnosisCallback
 import team.su.btmxmlversion.ui.main.infirmMain.dementiaDiagnosis.service.DiagnosisService
 
@@ -27,6 +29,12 @@ class DiagnosisRepository(
                 dementiaDiagnosisCallback.getRetrofitException()
             }
         })
+    }
+
+    suspend fun trySetDiagnosisResult(
+        updateDiagnosisDementiaDTO: UpdateDiagnosisDementiaRequestBody
+    ): UpdateDiagnosisDementiaResponse {
+        return diagnosisService.updateDiagnosisDementia(updateDiagnosisDementiaDTO)
     }
 
 }
