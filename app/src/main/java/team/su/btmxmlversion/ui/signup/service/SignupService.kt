@@ -7,9 +7,11 @@ import retrofit2.http.POST
 import retrofit2.http.Query
 import team.su.btmxmlversion.dto.SignupInfirmRequestBody
 import team.su.btmxmlversion.dto.SignupInstitutionBody
+import team.su.btmxmlversion.dto.SignupParentBody
 import team.su.btmxmlversion.models.CertifiedResultResponse
 import team.su.btmxmlversion.models.SignupInfirmResponse
 import team.su.btmxmlversion.models.SignupInstitutionResponse
+import team.su.btmxmlversion.models.SignupParentResponse
 
 interface SignupService {
 
@@ -28,5 +30,10 @@ interface SignupService {
     fun signupInstitution(
         @Body institutionInfo: SignupInstitutionBody
     ) : Call<SignupInstitutionResponse>
+
+    @POST("/signup/parent")
+    fun signupParent(
+        @Body parentInfo: SignupParentBody
+    ) : Call<SignupParentResponse>
 
 }
