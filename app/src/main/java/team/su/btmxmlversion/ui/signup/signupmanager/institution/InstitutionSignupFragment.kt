@@ -7,9 +7,11 @@ import androidx.core.app.ActivityCompat
 import team.su.btmxmlversion.R
 import team.su.btmxmlversion.base.BaseFragment
 import team.su.btmxmlversion.databinding.FragmentSignupInstitutionBinding
+import team.su.btmxmlversion.models.CertifiedResultResponse
 import team.su.btmxmlversion.network.CommonDataServiceLocator
 import team.su.btmxmlversion.repository.NursingHomeRepository
 import team.su.btmxmlversion.models.NursingHomeResponse
+import team.su.btmxmlversion.repository.SignupRepository
 import team.su.btmxmlversion.ui.main.infirmMain.MainActivity
 import team.su.btmxmlversion.ui.signup.SignupActivity
 
@@ -35,35 +37,44 @@ class InstitutionSignupFragment:
         }
 
         binding.certifiedBtn.setOnClickListener {
-            showLoadingDialog(binding.root.context)
             NursingHomeRepository(CommonDataServiceLocator.nursingHomeService).tryGetNursingHome(this)
         }
 
     }
 
     override fun getNursingHomeDataSuccess(response: NursingHomeResponse) {
-        dismissLoadingDialog()
+        showLoadingDialog(binding.root.context)
 
         val data = response.data
         val facilityName = binding.facilityName.text.toString()
         val representative = binding.representative.text.toString()
-
         val correctInput = data.filter { it.representative == representative && it.facilityName == facilityName }
 
         when(correctInput.isEmpty()) {
-            true -> { showCustomToast("시설명 혹은 대표자명을 확인해주세요.") }
+            true -> {
+                showCustomToast("시설명 혹은 대표자명을 확인해주세요.")
+                dismissLoadingDialog()
+            }
             false -> {
-                showCustomToast("인증되었습니다.")
-                binding.certifiedBtn.isEnabled = false
-                binding.facilityName.isEnabled = false
-                binding.representative.isEnabled = false
+                SignupRepository(CommonDataServiceLocator.signupService)
+                    .tryCertifiedInstitution(facilityName, representative, this)
             }
         }
-
     }
 
     override fun getNursingHomeDataFailure() {
         showCustomToast("연동 실패")
+    }
+
+    override fun getInstitution(response: CertifiedResultResponse) {
+        if (response.result_code == 200) {
+            showCustomToast(response.message)
+        } else {
+            showCustomToast(response.message)
+            binding.certifiedBtn.isEnabled = false
+            binding.facilityName.isEnabled = false
+            binding.representative.isEnabled = false
+        }
         dismissLoadingDialog()
     }
 
