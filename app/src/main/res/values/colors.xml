@@ -13,7 +13,6 @@
     <color name="btm_base_green_200">#00892A</color>
     <color name="btm_base_green_300">#064109</color>
     <!-- SignupActivity -->
-    <color name="tab_indicator_color">#7EDCE9</color>
     <color name="certified_enable_button_color">#43A047</color>
     <color name="certified_disable_button_color">#9C9B9B</color>
     <color name="login_edit_text_disable_color">#C3C3C3</color>

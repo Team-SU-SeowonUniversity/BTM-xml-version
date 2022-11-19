@@ -54,7 +54,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/app_bar"
         app:tabIndicator="@drawable/signup_tab_indicator"
-        app:tabIndicatorColor="@color/tab_indicator_color"
+        app:tabIndicatorColor="@color/btm_base_green_100"
         app:tabIndicatorGravity="stretch"
         app:tabRippleColor="@null"
         app:tabTextAppearance="@style/signup_tab_text"

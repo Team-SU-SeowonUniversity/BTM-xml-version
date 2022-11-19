@@ -16,7 +16,7 @@ class SignupActivity: BaseActivity<ActivitySignupBinding>(ActivitySignupBinding:
         TabLayoutMediator(binding.signupTab, binding.signupVp) { tab, position ->
             when(position) {
                 0 -> tab.text = "노약자"
-                1 -> tab.text = "관리자"
+                1 -> tab.text = "보호자"
             }
         }.attach()
 

@@ -7,10 +7,10 @@ import android.view.View
 import androidx.fragment.app.activityViewModels
 import team.su.btmxmlversion.R
 import team.su.btmxmlversion.base.BaseFragment
-import team.su.btmxmlversion.databinding.FragmentInfirmBinding
+import team.su.btmxmlversion.databinding.FragmentLoginInfirmBinding
 import team.su.btmxmlversion.ui.login.LoginViewModel
 
-class InfirmLonginFragment: BaseFragment<FragmentInfirmBinding>(FragmentInfirmBinding::bind, R.layout.fragment_infirm) {
+class InfirmLonginFragment: BaseFragment<FragmentLoginInfirmBinding>(FragmentLoginInfirmBinding::bind, R.layout.fragment_login_infirm) {
 
     private val viewModel: LoginViewModel by activityViewModels()
 
@@ -30,7 +30,7 @@ class InfirmLonginFragment: BaseFragment<FragmentInfirmBinding>(FragmentInfirmBi
         override fun afterTextChanged(phoneNumber: Editable?) {
             super.afterTextChanged(phoneNumber)
 
-            viewModel.setData(phoneNumber.toString())
+            viewModel.setInfirmPhoneNumber(phoneNumber.toString())
         }
     }
 }
