@@ -11,6 +11,7 @@
         android:background="@drawable/login_box"
         android:hint="@string/email_text"
         android:inputType="textEmailAddress"
+        android:maxLines="1"
         android:paddingHorizontal="10dp"
         android:paddingVertical="10dp"
         android:textColor="@color/black"
@@ -28,6 +29,7 @@
         android:hint="@string/password_text"
         android:inputType="textPassword"
         android:maxLength="15"
+        android:maxLines="1"
         android:paddingHorizontal="10dp"
         android:paddingVertical="10dp"
         android:textColor="@color/black"
@@ -36,17 +38,34 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email_signup_input" />
 
+    <EditText
+        android:id="@+id/name_input"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/login_box"
+        android:hint="@string/name_text"
+        android:inputType="textEmailAddress"
+        android:maxLines="1"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_signup_input" />
+
     <TextView
         android:id="@+id/tool_tip"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="PW : 8~15자"
-        android:textSize="18sp"
         android:layout_marginStart="10dp"
         android:fontFamily="@font/nanum_pen_script_regular"
+        android:text="PW : 8~15자"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@id/password_signup_input"
         app:layout_constraintStart_toEndOf="@id/password_signup_input"
-        app:layout_constraintTop_toTopOf="@id/password_signup_input"
-        app:layout_constraintBottom_toBottomOf="@id/password_signup_input"/>
+        app:layout_constraintTop_toTopOf="@id/password_signup_input" />
 
     <TextView
         android:id="@+id/check_btn"
@@ -59,9 +78,9 @@
         android:text="@string/check_text"
         android:textColor="@color/black"
         android:textSize="30sp"
-        app:layout_constraintEnd_toEndOf="@id/password_signup_input"
-        app:layout_constraintStart_toStartOf="@id/password_signup_input"
-        app:layout_constraintTop_toBottomOf="@+id/password_signup_input" />
+        app:layout_constraintEnd_toEndOf="@id/name_input"
+        app:layout_constraintStart_toStartOf="@id/name_input"
+        app:layout_constraintTop_toBottomOf="@+id/name_input" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
