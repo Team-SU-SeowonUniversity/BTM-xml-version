@@ -52,7 +52,7 @@ class SignupRepository(
             ) {
                 val body = requireNotNull(response.body())
 
-                institutionSignupCallback.getInstitution(body)
+                institutionSignupCallback.getCertifiedResult(body)
             }
 
             override fun onFailure(call: Call<CertifiedResultResponse>, t: Throwable) {

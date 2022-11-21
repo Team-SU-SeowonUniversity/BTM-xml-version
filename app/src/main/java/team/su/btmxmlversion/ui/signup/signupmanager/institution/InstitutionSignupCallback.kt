@@ -9,7 +9,7 @@ interface InstitutionSignupCallback: BaseCallback {
 
     fun getNursingHomeDataSuccess(response: NursingHomeResponse)
 
-    fun getInstitution(response: CertifiedResultResponse)
+    fun getCertifiedResult(response: CertifiedResultResponse)
 
     fun getInstitutionSignupSuccess(response: SignupInstitutionResponse)
 

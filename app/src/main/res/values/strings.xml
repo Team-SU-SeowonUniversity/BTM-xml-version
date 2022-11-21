@@ -30,4 +30,12 @@
     <string name="analysis_graph_text">분석 그래프</string>
     <string name="name_text">이름</string>
     <string name="logout_text">로그아웃</string>
+    <string name="interlock_text">연동하기</string>
+    <string name="infirm_info_text">노약자 정보</string>
+    <string name="make_quiz_text">퀴즈제작</string>
+    <string name="interlock_info_text">연동 정보</string>
+    <string name="interlock_out_text">연동종료</string>
+    <string name="infirm_health_state_text">노약자 건강 상태</string>
+    <string name="name_change_text">이름 변경</string>
+    <string name="email_change_text">이메일 변경</string>
 </resources>

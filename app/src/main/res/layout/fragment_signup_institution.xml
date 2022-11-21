@@ -36,6 +36,23 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/email_signup_input" />
 
+    <EditText
+        android:id="@+id/name_signup_input"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/login_box"
+        android:hint="@string/name_text"
+        android:inputType="textPassword"
+        android:maxLength="15"
+        android:paddingHorizontal="10dp"
+        android:paddingVertical="10dp"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/password_signup_input" />
+
     <TextView
         android:id="@+id/tool_tip"
         android:layout_width="wrap_content"
@@ -54,9 +71,9 @@
         android:layout_width="220dp"
         android:layout_height="1dp"
         android:layout_marginTop="10dp"
-        app:layout_constraintEnd_toEndOf="@id/password_signup_input"
-        app:layout_constraintStart_toStartOf="@id/password_signup_input"
-        app:layout_constraintTop_toBottomOf="@id/password_signup_input" />
+        app:layout_constraintEnd_toEndOf="@id/name_signup_input"
+        app:layout_constraintStart_toStartOf="@id/name_signup_input"
+        app:layout_constraintTop_toBottomOf="@id/name_signup_input" />
 
     <EditText
         android:id="@+id/facilityName"

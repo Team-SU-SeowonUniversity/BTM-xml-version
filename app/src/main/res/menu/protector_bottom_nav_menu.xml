@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <item
+        android:id="@+id/make_quiz"
+        android:title="@string/make_quiz_text"
+        android:icon="@drawable/make_quiz_icon"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/infirm_info"
+        android:title="@string/infirm_info_text"
+        android:icon="@drawable/infirm_info_icon"
+        app:showAsAction="ifRoom"/>
+
+    <item
+        android:id="@+id/my_page"
+        android:title="@string/my_page_text"
+        android:icon="@drawable/bottom_nav_my_page_icon"
+        app:showAsAction="ifRoom"/>
+
+</menu>

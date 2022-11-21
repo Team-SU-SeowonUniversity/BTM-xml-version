@@ -10,6 +10,7 @@ import team.su.btmxmlversion.models.SignupParentResponse
 import team.su.btmxmlversion.network.CommonDataServiceLocator
 import team.su.btmxmlversion.repository.SignupRepository
 import team.su.btmxmlversion.ui.main.infirmMain.MainActivity
+import team.su.btmxmlversion.ui.main.parentMain.ParentMainActivity
 import team.su.btmxmlversion.ui.signup.SignupActivity
 import java.util.regex.Pattern
 
@@ -50,14 +51,21 @@ class ParentSignupFragment :
     }
 
     override fun getParentSignupSuccess(response: SignupParentResponse) {
+        val sharedPreferences = activity?.getSharedPreferences("BTM_APP", 0)
+
         if (response.result_code == 200) {
             showCustomToast(response.message)
             dismissLoadingDialog()
         } else {
+            sharedPreferences?.edit()?.apply {
+                putBoolean("isInstitution", false)
+                putString("email", response.email)
+                putString("name", response.name)
+            }?.apply()
             showCustomToast(response.message)
             dismissLoadingDialog()
 
-            startActivity(Intent(binding.root.context, MainActivity::class.java))
+            startActivity(Intent(binding.root.context, ParentMainActivity::class.java))
             ActivityCompat.finishAffinity(context as SignupActivity)
         }
     }

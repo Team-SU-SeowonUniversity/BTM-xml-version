@@ -20,8 +20,6 @@ abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflate
         var isDiagnosis: Boolean = false
     }
 
-    //val isDiagnosis = intent.getBooleanExtra("isDiagnosis", false)
-
     protected lateinit var binding: B
         private set
     lateinit var mLoadingDialog: LoadingDialog

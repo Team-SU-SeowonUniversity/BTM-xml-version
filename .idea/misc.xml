@@ -18,6 +18,7 @@
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/drawable/default_image.xml" value="0.203" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/drawable/diagnosis_rv_stroke.xml" value="0.2025" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/drawable/icon_check.xml" value="0.214" />
+        <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/drawable/infirm_info_icon.xml" value="0.2025" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/drawable/login_box.xml" value="0.16" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/drawable/login_box_disable.xml" value="0.214" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/drawable/login_box_enable.xml" value="0.214" />
@@ -35,6 +36,8 @@
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/activity_login.xml" value="0.33" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/activity_main.xml" value="0.25" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/activity_multiple_choice_quiz.xml" value="0.33" />
+        <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/activity_protector.xml" value="0.3007246376811594" />
+        <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/activity_protector_main.xml" value="0.3007246376811594" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/activity_signup.xml" value="0.33" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/activity_splash.xml" value="0.17755825734549138" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/activity_start.xml" value="0.17755825734549138" />
@@ -47,21 +50,26 @@
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/fragment_dementia_diagnosis.xml" value="0.33106884057971014" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/fragment_infirm.xml" value="0.33" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/fragment_intuition.xml" value="0.33106884057971014" />
+        <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/fragment_make_quiz_parent.xml" value="0.3007246376811594" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/fragment_manager.xml" value="0.33" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/fragment_memory.xml" value="0.29957264957264956" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/fragment_my_page.xml" value="0.33" />
+        <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/fragment_my_page_parent.xml" value="0.33" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/fragment_perception.xml" value="0.33106884057971014" />
+        <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/fragment_protector_my_page.xml" value="0.3007246376811594" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/fragment_quiz.xml" value="0.33106884057971014" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/fragment_quiz_list_view_pager.xml" value="0.3374094202898551" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/fragment_signup_infirm.xml" value="0.33" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/fragment_signup_institution.xml" value="0.33" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/fragment_signup_manager.xml" value="0.25" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/fragment_signup_parent.xml" value="0.33" />
+        <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/interlock_dialog_screen.xml" value="0.3007246376811594" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/multiple_choice_quiz_recycler_view_item.xml" value="0.3374094202898551" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/quiz_recycler_view_item.xml" value="0.33106884057971014" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/quiz_view_pager_item.xml" value="0.33106884057971014" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/layout/recycler_view_main_category_item.xml" value="0.33106884057971014" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/menu/bottom_navigation_menu.xml" value="0.36614583333333334" />
+        <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/menu/protector_bottom_nav_menu.xml" value="0.3651041666666667" />
         <entry key="..\:/Users/gdrea/OneDrive/Documents/BTM-xml-version/app/src/main/res/xml/network_secyrity_config.xml" value="0.16259057971014493" />
       </map>
     </option>

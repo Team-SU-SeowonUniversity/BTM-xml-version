@@ -16,6 +16,8 @@ import team.su.btmxmlversion.ui.login.adapter.LoginVpAdapter
 import team.su.btmxmlversion.ui.login.infirm.InfirmLoginCallback
 import team.su.btmxmlversion.ui.login.protector.ProtectorCallback
 import team.su.btmxmlversion.ui.main.infirmMain.MainActivity
+import team.su.btmxmlversion.ui.main.institutionMain.InstitutionMainActivity
+import team.su.btmxmlversion.ui.main.parentMain.ParentMainActivity
 import team.su.btmxmlversion.ui.signup.SignupActivity
 import java.util.regex.Pattern
 
@@ -24,7 +26,6 @@ class LoginActivity :
     InfirmLoginCallback,
     ProtectorCallback
 {
-
     private val viewModel: LoginViewModel by viewModels()
     private var inputPhoneNumber = ""
     private var inputEmail = ""
@@ -109,14 +110,33 @@ class LoginActivity :
     }
 
     override fun getProtectorLoginSuccess(response: LoginProtectorResponse) {
+        val sharedPreferences = getSharedPreferences("BTM_APP", 0)
+        val isInstitution = response.isInstitution
+        val email = response.email
+        val name = response.name
+        val affiliation = response.facilityName
+        val representative = response.representative
+
         if (response.result_code == 200) {
             showCustomToast(response.message)
             dismissLoadingDialog()
         } else {
+            sharedPreferences.edit().apply {
+                putBoolean("isInstitution", isInstitution)
+                putString("email", email)
+                putString("name", name)
+                putString("affiliation", affiliation)
+                putString("representative", representative)
+            }.apply()
+
             showCustomToast(response.message)
             dismissLoadingDialog()
 
-            startActivity(Intent(this, MainActivity::class.java))
+            when (isInstitution) {
+                true -> startActivity(Intent(this, InstitutionMainActivity::class.java))
+                false -> startActivity(Intent(this, ParentMainActivity::class.java))
+            }
+
             finish()
         }
     }

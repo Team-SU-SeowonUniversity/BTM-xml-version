@@ -36,7 +36,8 @@
         <activity android:name=".ui.main.infirmMain.quiz.perception.blinking.BlinkingActivity" />
         <activity android:name=".ui.main.infirmMain.quiz.memory.HwatuCard.HwatuCardActivity" />
         <activity android:name=".ui.main.infirmMain.dementiaDiagnosis.DiagnosisResultActivity" />
-        <!--<activity android:name=".splash.SplashActivity" />-->
+        <activity android:name=".ui.main.parentMain.ParentMainActivity" />
+        <!--<activity android:name=".ui.splash.SplashActivity" />-->
     </application>
 
 </manifest>

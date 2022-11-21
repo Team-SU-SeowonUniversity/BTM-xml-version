@@ -1,12 +1,7 @@
 package team.su.btmxmlversion.ui.signup.signupmanager.institution
 
 import android.content.Intent
-import android.os.Bundle
-import android.util.Log
-import android.view.View
-import androidx.activity.viewModels
 import androidx.core.app.ActivityCompat
-import androidx.fragment.app.viewModels
 import team.su.btmxmlversion.R
 import team.su.btmxmlversion.base.BaseFragment
 import team.su.btmxmlversion.databinding.FragmentSignupInstitutionBinding
@@ -17,10 +12,8 @@ import team.su.btmxmlversion.repository.NursingHomeRepository
 import team.su.btmxmlversion.models.NursingHomeResponse
 import team.su.btmxmlversion.models.SignupInstitutionResponse
 import team.su.btmxmlversion.repository.SignupRepository
-import team.su.btmxmlversion.ui.login.LoginViewModel
 import team.su.btmxmlversion.ui.main.infirmMain.MainActivity
 import team.su.btmxmlversion.ui.signup.SignupActivity
-import team.su.btmxmlversion.ui.signup.SignupViewModel
 import java.util.regex.Pattern
 
 class InstitutionSignupFragment:
@@ -33,6 +26,7 @@ class InstitutionSignupFragment:
         binding.checkBtn.setOnClickListener {
             val email = binding.emailSignupInput.text.toString()
             val passWord = binding.passwordSignupInput.text.toString()
+            val name = binding.nameSignupInput.text.toString()
             val facilityName = binding.facilityName.text.toString()
             val representative = binding.representative.text.toString()
             val emailRegex = "^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[.][a-zA-Z]{2,3}$"
@@ -43,7 +37,7 @@ class InstitutionSignupFragment:
                     if (Pattern.matches(passWordRegex, passWord)) {
                         showLoadingDialog(binding.root.context)
                         SignupRepository(CommonDataServiceLocator.signupService)
-                            .tryInstitutionSignup(SignupInstitutionBody(email,passWord,facilityName,representative),this)
+                            .tryInstitutionSignup(SignupInstitutionBody(email,passWord,name,facilityName,representative),this)
                     } else {
                         showCustomToast("비밀번호를 다시 입력해주세요.")
                     }
@@ -56,14 +50,13 @@ class InstitutionSignupFragment:
         }
 
         binding.certifiedBtn.setOnClickListener {
+            showLoadingDialog(binding.root.context)
             NursingHomeRepository(CommonDataServiceLocator.nursingHomeService).tryGetNursingHome(this)
         }
 
     }
 
     override fun getNursingHomeDataSuccess(response: NursingHomeResponse) {
-        showLoadingDialog(binding.root.context)
-
         val data = response.data
         val facilityName = binding.facilityName.text.toString()
         val representative = binding.representative.text.toString()
@@ -81,7 +74,7 @@ class InstitutionSignupFragment:
         }
     }
 
-    override fun getInstitution(response: CertifiedResultResponse) {
+    override fun getCertifiedResult(response: CertifiedResultResponse) {
         if (response.result_code == 200) {
             showCustomToast(response.message)
         } else {
@@ -94,10 +87,18 @@ class InstitutionSignupFragment:
     }
 
     override fun getInstitutionSignupSuccess(response: SignupInstitutionResponse) {
+        val sharedPreferences = activity?.getSharedPreferences("BTM_APP", 0)
+
         if (response.result_code == 200) {
             showCustomToast(response.message)
             dismissLoadingDialog()
         } else {
+            sharedPreferences?.edit()?.apply {
+                putBoolean("isInstitution", true)
+                putString("email", response.email)
+                putString("name", response.name)
+                putString("affiliation", response.facilityName)
+            }?.apply()
             showCustomToast(response.message)
             dismissLoadingDialog()
 

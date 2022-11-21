@@ -9,6 +9,7 @@ import android.widget.Toast
 import androidx.annotation.LayoutRes
 import androidx.fragment.app.Fragment
 import androidx.viewbinding.ViewBinding
+import team.su.btmxmlversion.until.AddInfirmDialog
 import team.su.btmxmlversion.until.LoadingDialog
 
 abstract class BaseFragment<B : ViewBinding>(
@@ -17,6 +18,7 @@ abstract class BaseFragment<B : ViewBinding>(
 ) : Fragment(layoutResId) {
     private var _binding: B? = null
     lateinit var mLoadingDialog: LoadingDialog
+    lateinit var mAddInfirmDialog: AddInfirmDialog
 
     protected val binding get() = _binding!!
 
@@ -47,5 +49,10 @@ abstract class BaseFragment<B : ViewBinding>(
         if (mLoadingDialog.isShowing) {
             mLoadingDialog.dismiss()
         }
+    }
+
+    fun showAddInfirmDialog(context: Context, email: String, protectorName: String, facilityName: String?) {
+        mAddInfirmDialog = AddInfirmDialog(context, email, protectorName, facilityName)
+        mAddInfirmDialog.show()
     }
 }
