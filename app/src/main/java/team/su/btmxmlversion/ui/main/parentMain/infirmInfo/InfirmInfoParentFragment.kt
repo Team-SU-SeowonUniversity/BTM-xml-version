@@ -2,12 +2,22 @@ package team.su.btmxmlversion.ui.main.parentMain.infirmInfo
 
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.launch
 import team.su.btmxmlversion.R
 import team.su.btmxmlversion.base.BaseFragment
 import team.su.btmxmlversion.databinding.FragmentInfirmInfoParentBinding
+import team.su.btmxmlversion.models.InterlockInfoResponse
+import team.su.btmxmlversion.network.CommonDataServiceLocator
+import team.su.btmxmlversion.repository.InterlockRepository
+import team.su.btmxmlversion.until.HorizontalBarChart
+import team.su.btmxmlversion.until.RefreshFragment.refreshFragment
 
-class InfirmInfoParentFragment:
-    BaseFragment<FragmentInfirmInfoParentBinding>(FragmentInfirmInfoParentBinding::bind, R.layout.fragment_infirm_info_parent)
+class InfirmInfoParentFragment :
+    BaseFragment<FragmentInfirmInfoParentBinding>(
+        FragmentInfirmInfoParentBinding::bind,
+        R.layout.fragment_infirm_info_parent
+    )
 {
     private var email: String = ""
     private var protectorName: String = ""
@@ -17,25 +27,77 @@ class InfirmInfoParentFragment:
         super.onViewCreated(view, savedInstanceState)
 
         val sharedPreferences = activity?.getSharedPreferences("BTM_APP", 0)
-        email = sharedPreferences?.getString("email","").toString()
-        protectorName = sharedPreferences?.getString("name","").toString()
-        facilityName = sharedPreferences?.getString("affiliation","").toString()
+        email = sharedPreferences?.getString("email", "").toString()
+        protectorName = sharedPreferences?.getString("name", "").toString()
+        facilityName = sharedPreferences?.getString("affiliation", "").toString()
 
         binding.managerName.text = protectorName
         binding.managerEmailAddress.text = email
-        binding.interlockOutButton.visibility = View.INVISIBLE
-        binding.infirmImage.visibility = View.INVISIBLE
-        binding.infirmName.visibility = View.INVISIBLE
-        binding.infirmPhoneNumber.visibility = View.INVISIBLE
-        binding.healthIconsLayout.visibility = View.INVISIBLE
 
+        lifecycleScope.launch {
+            val response = InterlockRepository(CommonDataServiceLocator.infirmInfoParentService)
+                .tryGetInterlockInfo(email)
+            getInterlockInfoSuccess(response)
+        }
     }
 
     override fun onResume() {
         super.onResume()
 
         binding.interlockButton.setOnClickListener {
-            showAddInfirmDialog(binding.root.context, email, protectorName, facilityName)
+            showAddInfirmDialog(
+                context= binding.root.context,
+                email = email,
+                protectorName = protectorName,
+                facilityName = facilityName,
+                onRefresh = { refreshFragment(this,parentFragmentManager) }
+            )
+        }
+    }
+
+    private fun getInterlockInfoSuccess(response: InterlockInfoResponse) {
+        val interlockInfo = response.infirmInfo
+
+        if (response.result_code == 200) {
+            binding.interlockOutButton.visibility = View.INVISIBLE
+            binding.infirmImage.visibility = View.INVISIBLE
+            binding.infirmName.visibility = View.INVISIBLE
+            binding.infirmPhoneNumber.visibility = View.INVISIBLE
+            binding.healthIconsLayout.visibility = View.INVISIBLE
+            binding.interlockButton.visibility = View.VISIBLE
+            showCustomToast(response.message)
+        } else {
+            val scoreList = arrayListOf<Float>()
+            scoreList.add(interlockInfo[0].perceptionScore)
+            scoreList.add(interlockInfo[0].memoryScore)
+            scoreList.add(interlockInfo[0].intuitionScore)
+            scoreList.add(interlockInfo[0].calculationScore)
+            scoreList.add(interlockInfo[0].analysisScore)
+            val setChart = HorizontalBarChart(scoreList,binding.barChart)
+            setChart.setBarChart()
+            setChart.setHealthState(
+                context = binding.root.context,
+                veryGoodImage = binding.veryGoodImage,
+                goodImage= binding.goodImage,
+                normalImage= binding.normalImage,
+                badImage= binding.badImage,
+                veryBadImage= binding.veryBadImage,
+                veryGoodText = binding.veryGoodText,
+                goodText = binding.goodText,
+                normalText = binding.normalText,
+                badText = binding.badText,
+                veryBadText = binding.veryBadText
+            )
+
+            binding.interlockOutButton.visibility = View.VISIBLE
+            binding.infirmImage.visibility = View.VISIBLE
+            binding.infirmName.visibility = View.VISIBLE
+            binding.infirmPhoneNumber.visibility = View.VISIBLE
+            binding.healthIconsLayout.visibility = View.VISIBLE
+            binding.interlockButton.visibility = View.INVISIBLE
+            binding.infirmName.text = interlockInfo[0].infirmName
+            binding.infirmPhoneNumber.text = interlockInfo[0].phoneNumber
+            binding.barChart.invalidate()
         }
     }
 

@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/parent_layout"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:paddingHorizontal="15dp" >
+        android:paddingHorizontal="15dp">
 
         <TextView
             android:id="@+id/interlock_text"
@@ -30,6 +31,7 @@
             android:text="@string/interlock_out_text"
             android:textSize="20sp"
             android:textStyle="bold"
+            android:visibility="invisible"
             app:layout_constraintBottom_toBottomOf="@+id/interlock_text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="@+id/interlock_text" />
@@ -104,6 +106,7 @@
                     android:layout_marginStart="10dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/default_profile_image"
+                    android:visibility="invisible"
                     app:layout_constraintStart_toEndOf="@+id/my_profile_divider"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -116,9 +119,10 @@
                     android:text="@string/interlock_text"
                     android:textSize="20sp"
                     android:textStyle="bold"
+                    android:visibility="invisible"
                     app:layout_constraintBottom_toBottomOf="@+id/my_profile_divider"
-                    app:layout_constraintStart_toEndOf="@+id/my_profile_divider"
                     app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@+id/my_profile_divider"
                     app:layout_constraintTop_toTopOf="@+id/my_profile_divider" />
 
                 <TextView
@@ -128,6 +132,7 @@
                     android:layout_gravity="center"
                     android:text="노약자"
                     android:textSize="14sp"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="@+id/infirm_image"
                     app:layout_constraintStart_toStartOf="@+id/infirm_image"
                     app:layout_constraintTop_toBottomOf="@+id/infirm_image" />
@@ -139,6 +144,7 @@
                     android:layout_gravity="center"
                     android:text="010-0000-0000"
                     android:textSize="14sp"
+                    android:visibility="invisible"
                     app:layout_constraintEnd_toEndOf="@+id/infirm_image"
                     app:layout_constraintStart_toStartOf="@+id/infirm_image"
                     app:layout_constraintTop_toBottomOf="@+id/infirm_name" />
@@ -174,7 +180,8 @@
                 android:id="@+id/health_icons_layout"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center">
+                android:layout_gravity="center"
+                android:visibility="invisible">
 
                 <ImageView
                     android:id="@+id/very_good_image"

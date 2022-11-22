@@ -12,7 +12,7 @@ class MakeQuizParentFragment:
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
+        // 퀴즈 제작 해야함
 
     }
 }

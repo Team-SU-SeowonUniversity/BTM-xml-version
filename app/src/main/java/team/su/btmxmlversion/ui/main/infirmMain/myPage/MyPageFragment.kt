@@ -204,8 +204,12 @@ class MyPageFragment:
         if (response.managerEmail == null) {
             binding.managerName.text = "연결되지 않음"
             binding.managerEmailAddress.visibility = View.INVISIBLE
-        } else {
+        } else if(response.facilityName == "" || response.facilityName == null){
             binding.managerName.text = response.managerName
+            binding.managerEmailAddress.text = response.managerEmail
+            binding.managerImage.setImageResource(R.drawable.default_profile_image)
+        } else {
+            binding.managerName.text = response.facilityName
             binding.managerEmailAddress.text = response.managerEmail
             binding.managerImage.setImageResource(R.drawable.default_profile_image)
         }

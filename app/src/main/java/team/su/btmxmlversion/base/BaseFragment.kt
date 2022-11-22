@@ -51,8 +51,14 @@ abstract class BaseFragment<B : ViewBinding>(
         }
     }
 
-    fun showAddInfirmDialog(context: Context, email: String, protectorName: String, facilityName: String?) {
-        mAddInfirmDialog = AddInfirmDialog(context, email, protectorName, facilityName)
+    fun showAddInfirmDialog(
+        context: Context,
+        email: String,
+        protectorName: String,
+        facilityName: String?,
+        onRefresh: () -> Unit
+    ) {
+        mAddInfirmDialog = AddInfirmDialog(context, email, protectorName, facilityName, onRefresh)
         mAddInfirmDialog.show()
     }
 }

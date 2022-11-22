@@ -15,7 +15,8 @@ class AddInfirmDialog(
     context: Context,
     private val email: String,
     private val protectorName: String,
-    private val facilityName: String?
+    private val facilityName: String?,
+    private val onRefresh: () -> Unit
 ) : Dialog(context), AddInfirmCallback {
 
     private lateinit var binding: InterlockDialogScreenBinding
@@ -51,6 +52,7 @@ class AddInfirmDialog(
         if (response.result_code == 100) {
             Toast.makeText(binding.root.context, response.message, Toast.LENGTH_SHORT).show()
             this.cancel()
+            onRefresh()
         } else {
             Toast.makeText(binding.root.context, response.message, Toast.LENGTH_SHORT).show()
         }

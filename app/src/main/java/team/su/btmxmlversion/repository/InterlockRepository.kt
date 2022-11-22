@@ -5,6 +5,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import team.su.btmxmlversion.dto.InterlockInfoRequestBody
 import team.su.btmxmlversion.models.BaseResponse
+import team.su.btmxmlversion.models.InterlockInfoResponse
 import team.su.btmxmlversion.ui.main.parentMain.infirmInfo.InfirmInfoParentService
 import team.su.btmxmlversion.until.AddInfirmCallback
 
@@ -27,6 +28,10 @@ class InterlockRepository(
                 addInfirmCallback.getRetrofitException()
             }
         })
+    }
+
+    suspend fun tryGetInterlockInfo(email: String): InterlockInfoResponse {
+        return infirmInfoParentService.getInterlockInfo(email)
     }
 
 }
