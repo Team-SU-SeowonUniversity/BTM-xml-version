@@ -4,8 +4,10 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 import team.su.btmxmlversion.dto.InterlockInfoRequestBody
+import team.su.btmxmlversion.dto.InterlockTerminationRequestBody
 import team.su.btmxmlversion.models.BaseResponse
 import team.su.btmxmlversion.models.InterlockInfoResponse
+import team.su.btmxmlversion.ui.main.parentMain.infirmInfo.InfirmInfoParentCallback
 import team.su.btmxmlversion.ui.main.parentMain.infirmInfo.InfirmInfoParentService
 import team.su.btmxmlversion.until.AddInfirmCallback
 
@@ -32,6 +34,24 @@ class InterlockRepository(
 
     suspend fun tryGetInterlockInfo(email: String): InterlockInfoResponse {
         return infirmInfoParentService.getInterlockInfo(email)
+    }
+
+    fun tryInterlockTermination(
+        interlockTerminationInfoDTO: InterlockTerminationRequestBody,
+        infirmInfoParentCallback: InfirmInfoParentCallback
+    ) {
+        infirmInfoParentService.interlockTermination(interlockTerminationInfoDTO).enqueue(object :
+            Callback<BaseResponse>{
+            override fun onResponse(call: Call<BaseResponse>, response: Response<BaseResponse>) {
+                val body = requireNotNull(response.body())
+
+                infirmInfoParentCallback.getInterlockTerminationSuccess(body)
+            }
+
+            override fun onFailure(call: Call<BaseResponse>, t: Throwable) {
+                infirmInfoParentCallback.getRetrofitException()
+            }
+        })
     }
 
 }

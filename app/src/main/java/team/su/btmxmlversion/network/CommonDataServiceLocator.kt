@@ -4,9 +4,7 @@ import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.create
 import team.su.btmxmlversion.BuildConfig
-import team.su.btmxmlversion.models.DiagnosisHistory
 import team.su.btmxmlversion.ui.login.service.LoginService
 import team.su.btmxmlversion.ui.main.infirmMain.dementiaDiagnosis.service.DiagnosisService
 import team.su.btmxmlversion.ui.main.infirmMain.myPage.service.InfirmUserInfoService
@@ -15,13 +13,15 @@ import team.su.btmxmlversion.ui.signup.service.NursingHomeService
 import team.su.btmxmlversion.ui.signup.service.SignupService
 import java.util.concurrent.TimeUnit
 
+
 object CommonDataServiceLocator {
     private const val BASE_URL = BuildConfig.URL_NURSING_HOME
     private const val BTM_URL = "http://116.40.6.160:9030"
 
     private val client: OkHttpClient = OkHttpClient.Builder()
-        .readTimeout(5000, TimeUnit.MILLISECONDS)
-        .connectTimeout(5000, TimeUnit.MILLISECONDS)
+        .readTimeout(100, TimeUnit.SECONDS)
+        .connectTimeout(100, TimeUnit.SECONDS)
+        .writeTimeout(100, TimeUnit.SECONDS)
         .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
         .build()
 
