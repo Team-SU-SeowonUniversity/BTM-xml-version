@@ -41,11 +41,6 @@ class HorizontalBarChart(
         barData = BarData(barDataSet)
         barData.barWidth = 0.5f
 
-        horizontalBarChart.data = barData
-        horizontalBarChart.description.isEnabled = false
-        horizontalBarChart.legend.isEnabled = false
-        horizontalBarChart.setTouchEnabled(false)
-
         val xAxis = horizontalBarChart.xAxis
         xAxis.setDrawAxisLine(false)
         xAxis.granularity = 1f
@@ -67,6 +62,12 @@ class HorizontalBarChart(
         axisRight.setDrawLabels(false) // label 삭제
         axisRight.setDrawGridLines(false)
         axisRight.setDrawAxisLine(false)
+
+        horizontalBarChart.data = barData
+        horizontalBarChart.description.isEnabled = false
+        horizontalBarChart.legend.isEnabled = false
+        horizontalBarChart.setTouchEnabled(false)
+        horizontalBarChart.invalidate()
     }
 
     fun setHealthState(

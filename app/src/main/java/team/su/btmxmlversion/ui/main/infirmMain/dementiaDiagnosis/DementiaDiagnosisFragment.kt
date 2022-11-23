@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import com.bumptech.glide.Glide
 import team.su.btmxmlversion.R
@@ -20,18 +21,22 @@ import team.su.btmxmlversion.ui.main.infirmMain.quiz.intuition.shadowing.Shadowi
 import team.su.btmxmlversion.ui.main.infirmMain.quiz.memory.HwatuCard.HwatuCardActivity
 import team.su.btmxmlversion.ui.main.infirmMain.quiz.perception.blinking.BlinkingActivity
 
-class DementiaDiagnosisFragment:
-    BaseFragment<FragmentDementiaDiagnosisBinding>(FragmentDementiaDiagnosisBinding::bind, R.layout.fragment_dementia_diagnosis), DementiaDiagnosisCallback
+class DementiaDiagnosisFragment :
+    BaseFragment<FragmentDementiaDiagnosisBinding>(
+        FragmentDementiaDiagnosisBinding::bind,
+        R.layout.fragment_dementia_diagnosis
+    ), DementiaDiagnosisCallback
 {
+    private var sharedPreferencesBTMAPP: SharedPreferences? = null
 
     override fun onResume() {
         super.onResume()
 
-        val sharedPreferencesBTMAPP = this.activity?.getSharedPreferences("BTM_APP",0)
+        sharedPreferencesBTMAPP = this.activity?.getSharedPreferences("BTM_APP", 0)
         val usingPhoneNumber = sharedPreferencesBTMAPP?.getString("uuid", "").toString()
 
         DiagnosisRepository(CommonDataServiceLocator.diagnosisService)
-            .tryGetDiagnosisHistory(usingPhoneNumber,this)
+            .tryGetDiagnosisHistory(usingPhoneNumber, this)
 
         binding.diagnosisButton.setOnClickListener {
             startDiagnosis(sharedPreferences = sharedPreferencesBTMAPP)
@@ -40,7 +45,6 @@ class DementiaDiagnosisFragment:
         binding.defaultDiagnosisButton.setOnClickListener {
             startDiagnosis(sharedPreferences = sharedPreferencesBTMAPP)
         }
-
     }
 
     private fun setAddDiagnosisStatementData(response: DiagnosisHistoryResponse): List<DiagnosisStatement> {
@@ -91,7 +95,8 @@ class DementiaDiagnosisFragment:
             ),
         )
 
-        val quizBundle = arrayListOf( // 각 영역별 랜덤으로 2개의 퀴즈를 뽑아 10개의 퀴즈로 묶음
+        val quizBundle = arrayListOf(
+            // 각 영역별 랜덤으로 2개의 퀴즈를 뽑아 10개의 퀴즈로 묶음
             quiz["지각"]?.random(),
             quiz["지각"]?.random(),
             quiz["직감"]?.random(),
@@ -115,15 +120,16 @@ class DementiaDiagnosisFragment:
     override fun getDiagnosisHistory(response: DiagnosisHistoryResponse) {
         showLoadingDialog(binding.root.context)
 
-        when(response.result_code) {
+        when (response.result_code) {
             100 -> {
-                binding.defaultLayout.visibility = View.GONE
+                binding.defaultLayout.visibility = View.INVISIBLE
                 binding.visibleLayout.visibility = View.VISIBLE
-                binding.diagnosisRv.adapter = DiagnosisStatementRvAdapter(setAddDiagnosisStatementData(response))
+                binding.diagnosisRv.adapter =
+                    DiagnosisStatementRvAdapter(setAddDiagnosisStatementData(response))
             }
             200 -> {
                 binding.defaultLayout.visibility = View.VISIBLE
-                binding.visibleLayout.visibility = View.GONE
+                binding.visibleLayout.visibility = View.INVISIBLE
                 Glide
                     .with(this)
                     .load(R.raw.diagnosis_gif)

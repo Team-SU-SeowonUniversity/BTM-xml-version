@@ -109,7 +109,6 @@ class InfirmInfoParentFragment :
 
             binding.infirmName.text = infirmName
             binding.infirmPhoneNumber.text = infirmPhoneNumber
-            binding.barChart.invalidate()
         }
     }
 

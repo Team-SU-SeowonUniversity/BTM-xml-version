@@ -19,9 +19,8 @@ object CommonDataServiceLocator {
     private const val BTM_URL = "http://116.40.6.160:9030"
 
     private val client: OkHttpClient = OkHttpClient.Builder()
-        .readTimeout(100, TimeUnit.SECONDS)
-        .connectTimeout(100, TimeUnit.SECONDS)
-        .writeTimeout(100, TimeUnit.SECONDS)
+        .readTimeout(5000, TimeUnit.MILLISECONDS)
+        .connectTimeout(5000, TimeUnit.MILLISECONDS)
         .addInterceptor(HttpLoggingInterceptor().setLevel(HttpLoggingInterceptor.Level.BODY))
         .build()
 
