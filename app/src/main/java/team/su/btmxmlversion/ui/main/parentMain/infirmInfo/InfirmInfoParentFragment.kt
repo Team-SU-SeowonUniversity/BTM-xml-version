@@ -71,7 +71,6 @@ class InfirmInfoParentFragment :
             binding.infirmImage.visibility = View.INVISIBLE
             binding.infirmName.visibility = View.INVISIBLE
             binding.infirmPhoneNumber.visibility = View.INVISIBLE
-            binding.healthIconsLayout.visibility = View.INVISIBLE
             binding.interlockButton.visibility = View.VISIBLE
             showCustomToast(response.message)
         } else {
@@ -85,17 +84,11 @@ class InfirmInfoParentFragment :
             val setChart = HorizontalBarChart(scoreList, binding.barChart)
             setChart.setBarChart()
             setChart.setHealthState(
-                context = binding.root.context,
                 veryGoodImage = binding.veryGoodImage,
                 goodImage = binding.goodImage,
                 normalImage = binding.normalImage,
                 badImage = binding.badImage,
-                veryBadImage = binding.veryBadImage,
-                veryGoodText = binding.veryGoodText,
-                goodText = binding.goodText,
-                normalText = binding.normalText,
-                badText = binding.badText,
-                veryBadText = binding.veryBadText
+                veryBadImage = binding.veryBadImage
             )
             infirmPhoneNumber = interlockInfo[0].phoneNumber
             infirmName = interlockInfo[0].infirmName
@@ -104,7 +97,6 @@ class InfirmInfoParentFragment :
             binding.infirmImage.visibility = View.VISIBLE
             binding.infirmName.visibility = View.VISIBLE
             binding.infirmPhoneNumber.visibility = View.VISIBLE
-            binding.healthIconsLayout.visibility = View.VISIBLE
             binding.interlockButton.visibility = View.INVISIBLE
 
             binding.infirmName.text = infirmName

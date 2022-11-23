@@ -77,17 +77,11 @@ class MyPageFragment:
         val setBarChart = HorizontalBarChart(scoreOfAreaType, binding.barChart)
         setBarChart.setBarChart()
         setBarChart.setHealthState(
-            context = binding.root.context,
             veryGoodImage = binding.veryGoodImage,
             goodImage = binding.goodImage,
             normalImage = binding.normalImage,
             badImage = binding.badImage,
             veryBadImage = binding.veryBadImage,
-            veryGoodText = binding.veryGoodText,
-            goodText = binding.goodText,
-            normalText = binding.normalText,
-            badText = binding.badText,
-            veryBadText = binding.veryBadText
         )
 
         dismissLoadingDialog()

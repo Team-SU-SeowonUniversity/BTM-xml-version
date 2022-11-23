@@ -1,17 +1,14 @@
 package team.su.btmxmlversion.until
 
-import android.content.Context
 import android.graphics.Color
+import android.view.View
 import android.widget.ImageView
-import android.widget.TextView
-import androidx.core.content.ContextCompat
 import com.github.mikephil.charting.charts.HorizontalBarChart
 import com.github.mikephil.charting.components.XAxis
 import com.github.mikephil.charting.data.BarData
 import com.github.mikephil.charting.data.BarDataSet
 import com.github.mikephil.charting.data.BarEntry
 import com.github.mikephil.charting.formatter.IndexAxisValueFormatter
-import team.su.btmxmlversion.R
 
 class HorizontalBarChart(
     private val scoreOfAreaType: List<Float>,
@@ -71,17 +68,11 @@ class HorizontalBarChart(
     }
 
     fun setHealthState(
-        context: Context,
         veryGoodImage: ImageView,
         goodImage: ImageView,
         normalImage: ImageView,
         badImage: ImageView,
         veryBadImage: ImageView,
-        veryGoodText: TextView,
-        goodText: TextView,
-        normalText: TextView,
-        badText: TextView,
-        veryBadText: TextView,
     ) {
         val avg = this.scoreOfAreaType.let {
             var total = 0f
@@ -91,80 +82,21 @@ class HorizontalBarChart(
             total / 5
         }
 
-        val disableColor = ContextCompat.getColor(context, R.color.health_state_text_disable_color)
-
         when (avg) {
             in 0f..20f -> {
-                veryGoodImage.setImageResource(R.drawable.very_good_icon_disable)
-                goodImage.setImageResource(R.drawable.good_icon_disable)
-                normalImage.setImageResource(R.drawable.normal_icon_disable)
-                badImage.setImageResource(R.drawable.bad_icon_disable)
-                veryBadImage.setImageResource(R.drawable.very_bad_icon)
-                veryGoodText.setTextColor(disableColor)
-                goodText.setTextColor(disableColor)
-                normalText.setTextColor(disableColor)
-                badText.setTextColor(disableColor)
-                veryBadText.setTextColor(Color.BLACK)
+                veryBadImage.visibility = View.VISIBLE
             }
             in 20.1f..40f -> {
-                veryGoodImage.setImageResource(R.drawable.very_good_icon_disable)
-                goodImage.setImageResource(R.drawable.good_icon_disable)
-                normalImage.setImageResource(R.drawable.normal_icon_disable)
-                badImage.setImageResource(R.drawable.bad_icon)
-                veryBadImage.setImageResource(R.drawable.very_bad_icon_disable)
-                veryGoodText.setTextColor(disableColor)
-                goodText.setTextColor(disableColor)
-                normalText.setTextColor(disableColor)
-                badText.setTextColor(Color.BLACK)
-                veryBadText.setTextColor(disableColor)
+                badImage.visibility = View.VISIBLE
             }
             in 40.1f..60f -> {
-                veryGoodImage.setImageResource(R.drawable.very_good_icon_disable)
-                goodImage.setImageResource(R.drawable.good_icon_disable)
-                normalImage.setImageResource(R.drawable.normal_icon)
-                badImage.setImageResource(R.drawable.bad_icon_disable)
-                veryBadImage.setImageResource(R.drawable.very_bad_icon_disable)
-                veryGoodText.setTextColor(disableColor)
-                goodText.setTextColor(disableColor)
-                normalText.setTextColor(Color.BLACK)
-                badText.setTextColor(disableColor)
-                veryBadText.setTextColor(disableColor)
+                normalImage.visibility = View.VISIBLE
             }
             in 60.1f..80f -> {
-                veryGoodImage.setImageResource(R.drawable.very_good_icon_disable)
-                goodImage.setImageResource(R.drawable.good_icon)
-                normalImage.setImageResource(R.drawable.normal_icon_disable)
-                badImage.setImageResource(R.drawable.bad_icon_disable)
-                veryBadImage.setImageResource(R.drawable.very_bad_icon_disable)
-                veryGoodText.setTextColor(disableColor)
-                goodText.setTextColor(Color.BLACK)
-                normalText.setTextColor(disableColor)
-                badText.setTextColor(disableColor)
-                veryBadText.setTextColor(disableColor)
+                goodImage.visibility = View.VISIBLE
             }
             in 80.1f..100f -> {
-                veryGoodImage.setImageResource(R.drawable.very_good_icon)
-                goodImage.setImageResource(R.drawable.good_icon_disable)
-                normalImage.setImageResource(R.drawable.normal_icon_disable)
-                badImage.setImageResource(R.drawable.bad_icon_disable)
-                veryBadImage.setImageResource(R.drawable.very_bad_icon_disable)
-                veryGoodText.setTextColor(Color.BLACK)
-                goodText.setTextColor(disableColor)
-                normalText.setTextColor(disableColor)
-                badText.setTextColor(disableColor)
-                veryBadText.setTextColor(disableColor)
-            }
-            else -> {
-                veryGoodImage.setImageResource(R.drawable.very_good_icon_disable)
-                goodImage.setImageResource(R.drawable.good_icon_disable)
-                normalImage.setImageResource(R.drawable.normal_icon_disable)
-                badImage.setImageResource(R.drawable.bad_icon_disable)
-                veryBadImage.setImageResource(R.drawable.very_bad_icon_disable)
-                veryGoodText.setTextColor(disableColor)
-                goodText.setTextColor(disableColor)
-                normalText.setTextColor(disableColor)
-                badText.setTextColor(disableColor)
-                veryBadText.setTextColor(disableColor)
+                veryGoodImage.visibility = View.VISIBLE
             }
         }
     }

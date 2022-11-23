@@ -162,9 +162,10 @@
 
                 <ImageView
                     android:id="@+id/very_good_image"
+                    android:visibility="invisible"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
-                    android:src="@drawable/very_good_icon"
+                    android:src="@drawable/very_good_circle"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -186,8 +187,9 @@
                     android:id="@+id/good_image"
                     android:layout_width="60dp"
                     android:layout_height="60dp"
+                    android:visibility="invisible"
                     android:layout_marginStart="10dp"
-                    android:src="@drawable/good_icon"
+                    android:src="@drawable/good_circle"
                     app:layout_constraintStart_toEndOf="@+id/very_good_image"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -210,7 +212,8 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_marginStart="10dp"
-                    android:src="@drawable/normal_icon"
+                    android:visibility="invisible"
+                    android:src="@drawable/normal_circle"
                     app:layout_constraintStart_toEndOf="@+id/good_image"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -233,7 +236,8 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_marginStart="10dp"
-                    android:src="@drawable/bad_icon"
+                    android:visibility="invisible"
+                    android:src="@drawable/bad_circle"
                     app:layout_constraintStart_toEndOf="@+id/normal_image"
                     app:layout_constraintTop_toTopOf="parent" />
 
@@ -256,7 +260,8 @@
                     android:layout_width="60dp"
                     android:layout_height="60dp"
                     android:layout_marginStart="10dp"
-                    android:src="@drawable/very_bad_icon"
+                    android:visibility="invisible"
+                    android:src="@drawable/very_bad_circle"
                     app:layout_constraintStart_toEndOf="@+id/bad_image"
                     app:layout_constraintTop_toTopOf="parent" />
 

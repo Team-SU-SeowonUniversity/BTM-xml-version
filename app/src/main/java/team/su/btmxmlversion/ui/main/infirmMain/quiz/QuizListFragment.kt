@@ -15,11 +15,11 @@ class QuizListFragment:
     companion object {
         val quizResponse = QuizResponse(
             listOf(
-                Quiz("그림자 찾기", R.drawable.panda_shadow, 2, 1),
-                Quiz("깜박깜박", R.drawable.thumbnail_test, 0, 5),
-                Quiz("화투패 맞추기", R.drawable.thumbnail_test, 1, 2),
-                Quiz("사칙연산", R.drawable.thumbnail_test, 3, 3),
-                Quiz("일기예보", R.drawable.thumbnail_test, 4, 4),
+                Quiz("그림자 찾기", R.drawable.shadowing_thumbnail, 2, 1),
+                Quiz("깜박깜박", R.drawable.blinking_thmbnail, 0, 5),
+                Quiz("화투패 맞추기", R.drawable.hwatu_thumbnail, 1, 2),
+                Quiz("사칙연산", R.drawable.calculation_thumbnail, 3, 3),
+                Quiz("일기예보", R.drawable.weather_thumbnail, 4, 4),
             )
         )
     }
