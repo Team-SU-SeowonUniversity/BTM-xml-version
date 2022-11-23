@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">BTM Xml Version</string>
+    <string name="app_name">뇌훈아</string>
     <!-- LoginActivity -->
     <string name="login_text">로그인</string>
     <string name="signup_text">회원가입</string>
