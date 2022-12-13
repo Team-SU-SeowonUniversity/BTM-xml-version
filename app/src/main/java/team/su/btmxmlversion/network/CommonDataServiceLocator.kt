@@ -17,7 +17,7 @@ import java.util.concurrent.TimeUnit
 
 object CommonDataServiceLocator {
     private const val BASE_URL = BuildConfig.URL_NURSING_HOME
-    private const val BTM_URL = "http://116.40.6.160:9030"
+    private const val BTM_URL = BuildConfig.SERVER_KEY
 
     private val client: OkHttpClient = OkHttpClient.Builder()
         .readTimeout(5000, TimeUnit.MILLISECONDS)

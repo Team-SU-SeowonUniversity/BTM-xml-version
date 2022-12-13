@@ -21,6 +21,7 @@ android {
         buildConfigField "String", "URL_NURSING_HOME", properties['url.chungcheongbukDoNursingHome']
         buildConfigField "String", "ENDPOINT_GET_NURSING_HOME", properties['endPoint.getNursingHome']
         buildConfigField "String", "API_KEY", properties['api.key']
+        buildConfigField "String", "SERVER_KEY", properties['server.key']
     }
 
     buildTypes {
